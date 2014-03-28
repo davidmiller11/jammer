@@ -35,6 +35,14 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+group :development do
+  gem 'better_errors'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
