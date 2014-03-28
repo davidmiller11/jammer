@@ -1,0 +1,13 @@
+<!-- new.html.erb - friendships -->
+<h1>Select which users to add as friends</h1>
+
+<%= form_for @friendship do |f|%>
+
+  <% @other_users.each do |user| %>
+    <div>
+      <%= user.first_name user.last_name %>
+      <%= f.check_box :selection %>
+    </div>
+  <% end %>
+
+<% end %>
