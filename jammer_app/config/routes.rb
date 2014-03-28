@@ -2,7 +2,13 @@ JammerApp::Application.routes.draw do
 
   root 'welcome#index'
 
-  get '/login' => 'sessions#new'
+  get '/login' => 'logins#new'
+  post '/login' => 'logins#create'
+  get '/logout' => 'logins#destroy'
+
+  resources :users do
+    resources :friendships
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

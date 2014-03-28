@@ -1,0 +1,29 @@
+<!-- index.html.erb - users -->
+<h1>Index of all jammers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Admin?</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @users.each do |user| %>
+  <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.user_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+  </tr>
+  <% end %>
+
+  </tbody>
+</table>

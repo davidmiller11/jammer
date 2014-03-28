@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Jammer</h1>
-  <div><%= link_to 'Login', login_path %></div>
+  <h1><%= link_to 'Jammer', root_path %></h1>
+  <% if current_user %>
+    Hi, <%= current_user.first_name %>
+    <span><%= link_to 'Logout', logout_path %></span>
+    <div>
+      <span>My Events</span>
+      | <span>My Invitations</span>
+      | <span>My Friends</span>
+      | <span><%= link_to 'All Users', users_path %></span>
+    </div>
+  <% else %>
+    <span><%= link_to 'Login', login_path %></span>
+    | <span><%= link_to 'Sign up', new_user_path %></span>
+  <% end %>
+
   <%= yield %>
 
 </body>
