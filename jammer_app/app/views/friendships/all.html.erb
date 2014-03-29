@@ -1,0 +1,30 @@
+<!-- all.html.erb - friendships -->
+<!-- a view for the admin to view all friendships -->
+
+<h1>Admin: All Friendships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>user_id</th>
+      <th>user's name</th>
+      <th>friend_id</th>
+      <th>friend's name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @friendships.each do |friendship| %>
+    <tr>
+      <td><%= friendship.id %></td>
+      <td><%= friendship.user_id %></td>
+      <td><%= friendship.user.full_name %></td>
+      <td><%= friendship.friend_id %></td>
+      <td><%= friendship.friend.full_name %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

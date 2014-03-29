@@ -1,7 +1,7 @@
 # users_controller.rb
 class UsersController < ApplicationController
 
-  before_action :require_authentication, only: [:show, :edit, :update, :destroy]
+  before_action :require_authentication, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -12,11 +12,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-
-    if @user.save
+    if @user = User.create(user_params)
+      # success
       redirect_to @user
     else
+      # error handling
       render 'new'
     end
   end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
 
-    if current_user == @user || current_user.admin == true
+    if @user == current_user || current_user.admin
       render 'edit'
     else
       redirect_to root_path
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if current_user == @user || current_user.admin == true
+    if @user == current_user || current_user.admin
       @user.update(user_params)
       @user.save
       redirect_to users_path

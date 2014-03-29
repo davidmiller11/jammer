@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+table {
+  border: 1px solid black;
+  border_collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid black;
+  /*border-bottom: 1px solid black;*/
+  /*border-right: 1px solid black*/
+}
+
+/*to remove the bottom border of the cells within the last row of the table*/
+tr:last-child td {
+  /*border-bottom: 0;*/
+}
+

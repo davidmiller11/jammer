@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JammerApp</title>
+  <title>Jammer | Let's Jam</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1><%= link_to 'Jammer', root_path %></h1>
   <% if current_user %>
+    <div>
     Hi, <%= current_user.first_name %>
     <span><%= link_to 'Logout', logout_path %></span>
+    </div>
+    <h1><%= link_to 'Jammer', root_path %></h1>
     <div>
       <span>My Events</span>
       | <span>My Invitations</span>
-      | <span><%= link_to 'My Friends', user_friendships_path(current_user) %></span>
-      | <span><%= link_to 'All Users', users_path %></span>
+      | <span><%= link_to "My Friends (#{current_user.friends.count})", user_friendships_path(current_user) %></span>
+      | <span><%= link_to "All Users (#{User.all.count})", users_path %></span>
+      <% if current_user.admin == true %>
+        | <span><%= link_to 'All Friendships (admin only)', '/friendships/all' %></span>
+      <% end %>
     </div>
   <% else %>
     <span><%= link_to 'Login', login_path %></span>
     | <span><%= link_to 'Sign up', new_user_path %></span>
+    <h1><%= link_to 'Jammer', root_path %></h1>
   <% end %>
 
   <%= yield %>

@@ -1,11 +1,24 @@
 <!-- index.html.erb - friendships -->
 <h1>My Friends</h1>
-<h3><%= link_to 'Add Friends', new_user_friendship_path(current_user) %></h3>
+<h4><%= link_to 'Add Friends', new_user_friendship_path(current_user) %></h4>
 
-<ol>
-  <% @friendships.each do |friend| %>
-  <li>
-    <%= friend.first_name friend.last_name %>
-  </li>
+<table>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <% @friendships.each do |friendship| %>
+  <tr>
+    <td>
+    <%= friendship.friend.full_name %>
+    </td>
+    <td>
+    <%= link_to 'Remove', friendship_path(friendship), method: :delete, data: { confirm: "Are you sure you want to remove #{friendship.friend.first_name} as a friend?"} %>
+    </td>
+  </tr>
   <% end %>
-</ol>
+  </tbody>
+</table>
