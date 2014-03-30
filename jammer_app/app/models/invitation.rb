@@ -4,5 +4,6 @@ class Invitation < ActiveRecord::Base
   belongs_to :event
   belongs_to :date
 
-  # validates :rsvp, includsion: { in: %w(yes no ifnec), message: "%{value} is not a valid rsvp"}
+  # %w converts string to array
+  validates :rsvp, inclusion: { in: %w(yes no ifnec), message: "%{value} is not a valid rsvp"}
 end

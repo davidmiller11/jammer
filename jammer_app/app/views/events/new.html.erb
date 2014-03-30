@@ -1,0 +1,17 @@
+<!-- new.html.erb - events -->
+<h2>New Event</h2>
+
+<%= form_for @event do |f| %>
+
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label 'Description (optional)' %>:
+  <%= f.text_field :description %><br />
+
+  <%= f.label 'Allow others to propose dates?' %>:
+  <%= f.check_box :allow_date_prop %><br />
+
+  <%= f.submit %>
+
+<% end %>

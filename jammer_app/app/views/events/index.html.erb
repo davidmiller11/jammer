@@ -1,0 +1,33 @@
+<!-- index.html.erb - events -->
+<h2>index of events for <%= current_user.full_name %></h2>
+<h4><%= link_to 'Create event', new_event_path %></h4>
+
+<% @events.each do |event| %>
+
+<p>
+  <div>
+    <strong>Name:</strong> <%= link_to event.name, event %>
+  </div>
+  <div>
+    <strong>Description:</strong> <%= event.description %>
+  </div>
+  <div>
+    <strong>Finalized?</strong> <%= event.finalized %>
+  </div>
+  <div>
+    <strong>Created by:</strong> <%= User.find(event.creator_id).full_name %>
+  </div>
+  <div>
+    <strong>Allow Date Proposals?</strong> <%= event.allow_date_prop %>
+  </div>
+  <div>
+    <strong>Created at:</strong> <%= event.created_at %>
+  </div>  
+  <% if event.location %>
+    <div>
+      <strong>Location:</strong> <%= event.location %>
+    </div>
+  <% end %>
+</p>
+
+<% end %>

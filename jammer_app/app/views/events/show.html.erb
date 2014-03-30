@@ -1,0 +1,28 @@
+<!-- show.html.erb - events -->
+<h2>Showing event named: <%= @event.name %></h2>
+
+<p>
+  <div>
+    <strong>Description:</strong> <%= @event.description %>
+  </div>
+  <div>
+    <strong>Finalized?</strong> <%= @event.finalized %>
+  </div>
+
+  <div>
+    <strong>Created by:</strong> <%= User.find(@event.creator_id).full_name %>
+  </div>
+  <div>
+    <strong>Allow Date Proposals?</strong> <%= @event.allow_date_prop %>
+  </div>
+  <div>
+    <strong>Created at:</strong> <%= @event.created_at %>
+  </div>
+  <div>
+  <% if @event.location %>
+    <strong>Location:</strong> <%= @event.location.name %>
+    <% else %>
+      <%= link_to 'Add location', new_location_path(:event_id => @event.id) %>
+    <% end %>
+  </div>
+</p>

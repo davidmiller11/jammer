@@ -5,6 +5,8 @@ JammerApp::Application.routes.draw do
   get '/login' => 'logins#new'
   post '/login' => 'logins#create'
   get '/logout' => 'logins#destroy'
+
+  # for admin
   get '/friendships/all' => 'friendships#all'
 
   resources :users do
@@ -12,6 +14,9 @@ JammerApp::Application.routes.draw do
   end
 
   resources :friendships, only: [:destroy]
+
+  resources :events
+  resources :locations
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

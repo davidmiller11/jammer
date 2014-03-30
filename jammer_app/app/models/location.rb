@@ -1,4 +1,4 @@
 # location.rb
 class Location < ActiveRecord::Base
-  belongs_to :event
+  has_many :events
 end
