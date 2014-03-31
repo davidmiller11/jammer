@@ -1,7 +1,10 @@
 <!-- show.html.erb - events -->
-<h2>Showing event named: <%= @event.name %></h2>
+<h2>Event: <%= @event.name %></h2>
 
 <p>
+  <div>
+    <strong>Location:</strong> <%= @event.location %>
+  </div>
   <div>
     <strong>Description:</strong> <%= @event.description %>
   </div>
@@ -18,11 +21,6 @@
   <div>
     <strong>Created at:</strong> <%= @event.created_at %>
   </div>
-  <div>
-  <% if @event.location %>
-    <strong>Location:</strong> <%= @event.location.name %>
-    <% else %>
-      <%= link_to 'Add location', new_location_path(:event_id => @event.id) %>
-    <% end %>
-  </div>
 </p>
+<div><%= link_to 'Edit', edit_event_path(@event) %></div>
+<%= link_to 'Back', events_path %>

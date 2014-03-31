@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :require_authentication, only: [:index]
 
   def index
-    @events = current_user.events + Event.where(creator_id: current_user.id)
+    @events = current_user.events + Event.where({:creator_id => current_user.id})
   end
 
   def new
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event.finalized = false
     @event.creator_id = current_user.id
     @event.save
-    redirect_to events_path
+    redirect_to 
   end
 
   def show
@@ -24,9 +24,13 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to event_path(@event)
   end
 
   def destroy
@@ -34,7 +38,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      return params.require(:event).permit(:name, :description, :allow_date_prop)
+      return params.require(:event).permit(:name, :description, :location, :allow_date_prop)
     end
 
 end
