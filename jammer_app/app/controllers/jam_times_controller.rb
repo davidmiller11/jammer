@@ -13,6 +13,9 @@ class JamTimesController < ApplicationController
     @jam = Jam.find(session[:jam_id])
     @jam_time = JamTime.create(jam_time_params)
     @jam.jam_times << @jam_time
+    
+    session[:jam_time_id] = @jam_time.id
+    # redirect_to new_rsvp_path
     redirect_to @jam
   end
 

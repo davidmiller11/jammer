@@ -20,5 +20,16 @@
     <strong>Created at:</strong> <%= @jam.created_at %>
   </div>
 </p>
+
+<p>
+  <strong>Jam Times:</strong>
+  <% @jam.jam_times.each do |jam_time| %>
+    <div><%= "#{jam_time.start_date} #{jam_time.start_time}" %></div>
+  <% end %>
+</p>
+
+<% session[:jam_id] = @jam.id %>
+<div><%= link_to 'Add another time', new_jam_time_path %></div>
+<div><%= link_to 'Invite friends (one-time only)', new_rsvp_path %></div>
 <div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
 <%= link_to 'Back', jams_path %>
