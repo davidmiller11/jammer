@@ -1,0 +1,14 @@
+<!-- new.html.erb - jam_times -->
+<h2>Adding dates for <%= @jam.name %></h2>
+
+<%= form_for @jam_time do |f| %>
+
+  <%= f.label :start_date %>:
+  <%= f.date_field :start_date %><br />
+
+  <%= f.label :start_time %>:
+  <%= f.time_field :start_time %><br />
+
+  <%= f.submit %>
+
+<% end %>

@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :friendships
   has_many :friends, :through => :friendships
-  has_many :invitations
-  has_many :events, :through => :invitations
+
+  has_many :jams
 
   def full_name
     return self.first_name + " " + self.last_name

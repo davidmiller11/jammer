@@ -15,8 +15,8 @@ JammerApp::Application.routes.draw do
 
   resources :friendships, only: [:destroy]
 
-  resources :events
-  resources :dates, only: [:new, :create]
+  resources :jams
+  resources :jam_times
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

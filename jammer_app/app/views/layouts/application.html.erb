@@ -14,7 +14,7 @@
     </div>
     <h1><%= link_to 'Jammer', root_path %></h1>
     <div>
-      <span><%= link_to 'My Events', events_path %></span>
+      <span><%= link_to 'My Jams', jams_path %></span>
       | <span>My Invitations</span>
       | <span><%= link_to "My Friends (#{current_user.friends.count})", user_friendships_path(current_user) %></span>
       | <span><%= link_to "All Users (#{User.all.count})", users_path %></span>

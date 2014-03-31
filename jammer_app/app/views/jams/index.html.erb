@@ -1,0 +1,30 @@
+<!-- index.html.erb - jams -->
+<h2>index of jams for <%= current_user.full_name %></h2>
+<h4><%= link_to 'Create new jam', new_jam_path %></h4>
+
+<% @jams.each do |jam| %>
+
+<p>
+  <div>
+    <strong>Name:</strong> <%= link_to jam.name, jam %>
+  </div>
+    <div>
+      <strong>Location:</strong> <%= jam.location %>
+    </div>
+  <div>
+    <strong>Description:</strong> <%= jam.description %>
+  </div>
+  <div>
+    <strong>Finalized?</strong> <%= jam.finalized %>
+  </div>
+  <div>
+    <strong>Created by:</strong> <%= User.find(jam.user_id).full_name %>
+  </div>
+
+  <div>
+    <strong>Created at:</strong> <%= jam.created_at %>
+  </div>  
+  
+</p>
+
+<% end %>

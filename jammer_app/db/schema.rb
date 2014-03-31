@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331152129) do
+ActiveRecord::Schema.define(version: 20140331161600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dates", force: true do |t|
-    t.date    "start_date"
-    t.time    "start_time"
-    t.integer "event_id"
+  create_table "friendships", force: true do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
   end
 
-  add_index "dates", ["event_id"], name: "index_dates_on_event_id", using: :btree
+  create_table "jam_times", force: true do |t|
+    t.date    "start_date"
+    t.time    "start_time"
+    t.integer "jam_id"
+  end
 
-  create_table "events", force: true do |t|
+  add_index "jam_times", ["jam_id"], name: "index_jam_times_on_jam_id", using: :btree
+
+  create_table "jams", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.boolean  "finalized"
@@ -34,20 +39,15 @@ ActiveRecord::Schema.define(version: 20140331152129) do
     t.string   "location"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
-
-  create_table "friendships", force: true do |t|
-    t.integer "user_id"
-    t.integer "friend_id"
-  end
+  add_index "jams", ["user_id"], name: "index_jams_on_user_id", using: :btree
 
   create_table "rsvps", force: true do |t|
     t.integer "user_id"
-    t.integer "date_id"
+    t.integer "jam_time_id"
     t.string  "answer"
   end
 
-  add_index "rsvps", ["date_id"], name: "index_rsvps_on_date_id", using: :btree
+  add_index "rsvps", ["jam_time_id"], name: "index_rsvps_on_jam_time_id", using: :btree
   add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
