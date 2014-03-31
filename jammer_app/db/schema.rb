@@ -11,41 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331010443) do
+ActiveRecord::Schema.define(version: 20140331152129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dates", force: true do |t|
-    t.date    "date_from"
-    t.date    "date_to"
-    t.time    "time_from"
-    t.time    "time_to"
-    t.integer "proposer_id"
+    t.date    "start_date"
+    t.time    "start_time"
+    t.integer "event_id"
   end
+
+  add_index "dates", ["event_id"], name: "index_dates_on_event_id", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.boolean  "finalized"
-    t.boolean  "allow_date_prop"
-    t.integer  "creator_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "friendships", force: true do |t|
     t.integer "user_id"
     t.integer "friend_id"
   end
 
-  create_table "invitations", force: true do |t|
-    t.integer "event_id"
+  create_table "rsvps", force: true do |t|
     t.integer "user_id"
     t.integer "date_id"
-    t.string  "rsvp"
+    t.string  "answer"
   end
+
+  add_index "rsvps", ["date_id"], name: "index_rsvps_on_date_id", using: :btree
+  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
