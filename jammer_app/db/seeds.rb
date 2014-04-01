@@ -9,7 +9,7 @@
 user1 = User.create({
   first_name: "David",
   last_name: "Miller",
-  email: "david@david.com",
+  email: "davidmiller11@gmail.com",
   password: "pw1",
   password_confirmation: "pw1",
   admin: true
@@ -36,9 +36,9 @@ jam_time2 = JamTime.create({
   })
 
 user2 = User.create({
-  first_name: "Igor",
-  last_name: "Yuzovitzky",
-  email: "igor@igor.com",
+  first_name: "Larry",
+  last_name: "David",
+  email: "larry@larry.com",
   password: "pw1",
   password_confirmation: "pw1",
   admin: false
