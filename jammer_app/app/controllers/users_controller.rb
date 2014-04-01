@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     if @user = User.create(user_params)
       # success
+      UserMailer.welcome_email(@user).deliver
       redirect_to @user
     else
       # error handling
@@ -47,6 +48,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if !current_user.admin
+      redirect_to :back
+    end
+
+    @user.destroy
+    redirect_to users_path
+
   end
 
   private

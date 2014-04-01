@@ -1,0 +1,26 @@
+<!-- invite_email.html.erb -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta content='text/html'; charset="UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+  <h1>Jammer</h1>
+  <h2>Hey <%= @user.full_name %>!  <%= User.find(@jam.user_id).full_name %> wants to Jam with you!</h2>
+  <h3>Jam details:</h3>
+  <p>
+    <div><strong>Name: </strong><%= @jam.name %></div>
+    <div><strong>Location: </strong><%= @jam.location %></div>
+    <div><strong>Description: </strong><%= @jam.description %></div>
+    <% num = 1 %>
+    <% @jam.jam_times.each do |jam_time| %>
+    <div><strong>Proposed Time <%= num %>: </strong><%= jam_time.start_date %> <%= jam_time.start_time %></div>  
+    <% num += 1 %>
+    <% end %>
+  </p>
+  <p>
+    To RSVP, follow this link: <%= @url %>
+    </p>
+    <p>Get ready to Jam!</p>
+</body>
+</html>

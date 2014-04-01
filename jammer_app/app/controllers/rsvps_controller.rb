@@ -30,6 +30,8 @@ class RsvpsController < ApplicationController
 
     Rsvp.create_many(@jam.jam_times, @invitee_user_ids)
 
+    UserMailer.invite_email(@jam, @invitee_user_ids).deliver
+    
     redirect_to @jam
   end
 
