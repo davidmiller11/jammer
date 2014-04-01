@@ -16,11 +16,11 @@ user1 = User.create({
   })
 
 jam1 = Jam.create({
-  name: 'Poker',
-  description: 'no limit tourney',
+  name: 'Pepper spraying cops',
+  description: "You know exactly what i'm talking about",
   finalized: false,
   user_id: user1.id,
-  location: 'my house, 14th and 2nd',
+  location: 'the streets of New York',
   })
 
 jam_time1 = JamTime.create({
@@ -45,11 +45,11 @@ user2 = User.create({
   })
 
 jam2 = Jam.create({
-  name: 'shopping',
-  description: 'shop til we drop, yo!',
+  name: 'Stealing candy from babies',
+  description: "because it's that easy",
   finalized: false,
   user_id: user2.id,
-  location: 'the big mall',
+  location: 'Toys R Us',
   })
 
 user3 = User.create({
@@ -62,9 +62,27 @@ user3 = User.create({
   })
 
 jam3 = Jam.create({
-  name: 'coffee',
-  description: 'lets get some caffeine',
+  name: 'Shopping with the girls',
+  description: 'Shop til we drop, yo!',
   finalized: false,
   user_id: user3.id,
-  location: 'starbucks!',
+  location: 'Dollar Store',
+  })
+
+user4 = User.create({
+  first_name: "Hugh",
+  last_name: "Jaynus",
+  email: "hugh@hugh.com",
+  password: "pw1",
+  password_confirmation: "pw1",
+  admin: false
+  })
+
+user5 = User.create({
+  first_name: "Rod",
+  last_name: "Rodikoff",
+  email: "rod@rod.com",
+  password: "pw1",
+  password_confirmation: "pw1",
+  admin: false
   })

@@ -6,7 +6,12 @@ class JamTimesController < ApplicationController
 
   def new
     @jam = Jam.find(session[:jam_id])
-    @jam_time = JamTime.new
+
+    if current_user.id == @jam.user_id
+      @jam_time = JamTime.new
+    else
+      redirect_to @jam
+    end
   end
 
   def create

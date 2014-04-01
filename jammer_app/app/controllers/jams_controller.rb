@@ -26,6 +26,9 @@ class JamsController < ApplicationController
 
   def edit
     @jam = Jam.find(params[:id])
+    if @jam.user_id != current_user.id
+      redirect_to @jam
+    end
   end
 
   def update
@@ -35,6 +38,13 @@ class JamsController < ApplicationController
   end
 
   def destroy
+    @jam = Jam.find(params[:id])
+    if current_user.admin || current_user.id == @jam.user_id
+      @jam.destroy
+      redirect_to jams_path
+    else
+      redirect_to @jam
+    end
   end
 
   private

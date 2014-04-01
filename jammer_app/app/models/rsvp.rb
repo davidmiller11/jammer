@@ -2,10 +2,6 @@
 class Rsvp < ActiveRecord::Base
   belongs_to :jam_time
 
-  # %w converts string to array
-  validates :answer, inclusion: { in: %w(yes no ifnec), message: "%{value} is not a valid rsvp"}
-
-
   def self.create_many(j_times, guest_ids)
     @j_times = j_times
     @guest_ids = guest_ids
@@ -18,7 +14,7 @@ class Rsvp < ActiveRecord::Base
           })
       end
     end
-    binding.pry
+    # binding.pry
   end
 
 end
