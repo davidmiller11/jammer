@@ -8,6 +8,7 @@ JammerApp::Application.routes.draw do
 
   # for admin
   get '/friendships/all' => 'friendships#all'
+  get '/jams/all' => 'jams#all'
 
   resources :users do
     resources :friendships, only: [:index, :new, :create]

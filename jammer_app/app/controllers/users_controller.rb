@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    if @user = User.create(user_params)
+    @user = User.new(user_params)
+    if @user.save
       # success
       UserMailer.welcome_email(@user).deliver
       redirect_to @user

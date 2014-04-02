@@ -12,7 +12,7 @@ user1 = User.create({
   email: "davidmiller11@gmail.com",
   password: "pw1",
   password_confirmation: "pw1",
-  admin: true
+  admin: false
   })
 
 jam1 = Jam.create({
@@ -24,13 +24,13 @@ jam1 = Jam.create({
   })
 
 jam_time1 = JamTime.create({
-  start_date: '2011-10-12',
-  start_time: '15:00:00',
+  start_date: '2014-04-04',
+  start_time: '16:15:00',
   jam_id: jam1.id
   })
 
 jam_time2 = JamTime.create({
-  start_date: '2011-11-11',
+  start_date: '2014-04-05',
   start_time: '13:30:00',
   jam_id: jam1.id
   })
@@ -52,6 +52,18 @@ jam2 = Jam.create({
   location: 'Toys R Us',
   })
 
+jam_time3 = JamTime.create({
+  start_date: '2014-04-05',
+  start_time: '13:30:00',
+  jam_id: jam2.id
+  })
+
+jam_time4 = JamTime.create({
+  start_date: '2014-04-05',
+  start_time: '12:30:00',
+  jam_id: jam2.id
+  })
+
 user3 = User.create({
   first_name: "Juan",
   last_name: "Johnson",
@@ -70,9 +82,9 @@ jam3 = Jam.create({
   })
 
 user4 = User.create({
-  first_name: "Hugh",
-  last_name: "Jaynus",
-  email: "hugh@hugh.com",
+  first_name: "Ash",
+  last_name: "Kamel",
+  email: "ash@ash.com",
   password: "pw1",
   password_confirmation: "pw1",
   admin: false
@@ -85,4 +97,13 @@ user5 = User.create({
   password: "pw1",
   password_confirmation: "pw1",
   admin: false
+  })
+
+user6 = User.create({
+  first_name: "admin",
+  last_name: "",
+  email: "admin",
+  password: "pw1",
+  password_confirmation: "pw1",
+  admin: true
   })

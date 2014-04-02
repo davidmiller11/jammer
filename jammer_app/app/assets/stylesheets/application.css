@@ -12,10 +12,54 @@
  *= require_tree .
  */
 
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  width: 900px;
+  /*background-color: yellow;*/
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.nav {
+  text-align: center;
+  margin-bottom: 50px;
+  /*background-color: green;*/
+}
+
+a:link {
+  text-decoration:none;
+  color: rgb(22, 173, 88);
+}
+
+a:visited {
+  text-decoration:none;
+  color: rgb(22, 173, 88);
+}
+
+a:hover {
+  text-decoration:underline;
+  color:rgb(196, 182, 15);
+}
+
 table {
   border: 1px solid black;
   border_collapse: collapse;
   border-spacing: 0;
+  margin: 0 auto;
+}
+
+th {
+  background-color: rgb(22, 173, 88);
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
 }
 
 th, td {
@@ -24,6 +68,14 @@ th, td {
   border: 1px solid black;
   /*border-bottom: 1px solid black;*/
   /*border-right: 1px solid black*/
+}
+
+td {
+  text-align: center;
+}
+
+tr td:first-child {
+  text-align: left;
 }
 
 /*to remove the bottom border of the cells within the last row of the table*/

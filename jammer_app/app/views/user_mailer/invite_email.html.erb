@@ -14,7 +14,7 @@
     <div><strong>Description: </strong><%= @jam.description %></div>
     <% num = 1 %>
     <% @jam.jam_times.each do |jam_time| %>
-    <div><strong>Proposed Time <%= num %>: </strong><%= jam_time.start_date %> <%= jam_time.start_time %></div>  
+    <div><strong>Proposed Time <%= num %>: </strong><%= jam_time.start_date_formatted %> <%= jam_time.start_time_formatted %></div>  
     <% num += 1 %>
     <% end %>
   </p>

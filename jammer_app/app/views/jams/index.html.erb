@@ -1,6 +1,11 @@
 <!-- index.html.erb - jams -->
-<h2>I made these Jams</h2>
-<h4><%= link_to 'Create new jam', new_jam_path %></h4>
+<% if current_user.admin %>
+  <h2>Admin: Viewing all Jams</h2>
+<% else %>
+  <h2>I made these Jams</h2>
+<% end %>
+
+
 
 <% @jams.each do |jam| %>
 
@@ -16,15 +21,10 @@
   </div>
   <div>
     <strong>Finalized?</strong> <%= jam.finalized %>
-  </div>
-  <div>
-    <strong>Created by:</strong> <%= User.find(jam.user_id).full_name %>
-  </div>
-
-  <div>
-    <strong>Created at:</strong> <%= jam.created_at %>
   </div>  
   
 </p>
 
 <% end %>
+
+<div><%= link_to 'Create new jam', new_jam_path %></div>

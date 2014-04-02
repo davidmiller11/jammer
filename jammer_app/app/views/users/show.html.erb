@@ -1,8 +1,6 @@
 <!-- show.html.erb - users -->
-<h1>Showing user id <%= @user.id %></h1>
-
-<%= link_to 'Edit user', edit_user_path(@user) %>
-
+<h2><%= @user.first_name %>'s Home Page</h2>
+<br />
 <table>
   <thead>
     <tr>
@@ -24,3 +22,5 @@
   </tbody>
 </table>
 
+<br />
+<%= link_to 'Edit Account', edit_user_path(@user) %>

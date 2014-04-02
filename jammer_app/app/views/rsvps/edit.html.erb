@@ -6,11 +6,10 @@
 
   <% @rsvp_ids_to_edit.each do |rsvp_id| %>
     <p>
-      <div><%= JamTime.find(Rsvp.find(rsvp_id).jam_time_id).start_date %></div>
-      <div><%= JamTime.find(Rsvp.find(rsvp_id).jam_time_id).start_time %></div>
+      <div><%= JamTime.find(Rsvp.find(rsvp_id).jam_time_id).start_date_formatted %></div>
+      <div><%= JamTime.find(Rsvp.find(rsvp_id).jam_time_id).start_time_formatted %></div>
     
-      <%= label_tag("answers[#{rsvp_id}]", "Answer:") %>
-      <%= text_field_tag("answers[#{rsvp_id}]") %>
+      <%= select_tag "answers[#{rsvp_id}]", options_for_select([['Yes', 'yes'], ['If Necessary', 'ifnec'], ['No', 'no']]) %>
     </p>
   <% end %>
 

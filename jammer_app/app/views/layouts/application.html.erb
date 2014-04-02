@@ -9,18 +9,20 @@
 <body>
   <% if current_user %>
     <div>
-    Hi, <%= current_user.first_name %>
+    Hi, <%= current_user.first_name  %> | 
     <span><%= link_to 'Logout', logout_path %></span>
     </div>
-    <h1><%= link_to 'Jammer', root_path %></h1>
-    <div>
-      <span><%= link_to "My Jams (#{current_user.jams.count})", jams_path %></span>
-      | <span><%= link_to "My Invitations (#{current_user.jams_invited_to.count})", rsvps_path %></span>
-      | <span><%= link_to "My Friends (#{current_user.friends.count})", user_friendships_path(current_user) %></span>
-      | <span><%= link_to "All Users (#{User.all.count})", users_path %></span>
-      <% if current_user.admin == true %>
-        | <span><%= link_to 'All Friendships (admin only)', '/friendships/all' %></span>
-      <% end %>
+    <h1><%= link_to 'Jammer', current_user %></h1>
+    <div class="nav">
+    <% if current_user.admin == true %>
+      <span><%= link_to 'All Friendships (admin)', '/friendships/all' %></span> |
+      <span><%= link_to 'All Jams (admin)', '/jams/all' %></span> |
+    <% end %>
+      <span><%= link_to "My Jams (#{current_user.jams.count})", jams_path %></span> |
+      <span><%= link_to "My Invitations (#{current_user.jams_invited_to.count})", rsvps_path %></span> |
+      <span><%= link_to "My Jammers (#{current_user.friends.count})", user_friendships_path(current_user) %></span> |
+      <span><%= link_to "All Jammers (#{User.all.count})", users_path %></span>
+
     </div>
   <% else %>
     <span><%= link_to 'Login', login_path %></span>
@@ -28,7 +30,12 @@
     <h1><%= link_to 'Jammer', root_path %></h1>
   <% end %>
 
-  <%= yield %>
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+  <% end %>
 
+  <%= yield %>
+</div>
 </body>
 </html>

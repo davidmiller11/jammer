@@ -7,6 +7,11 @@ class JamsController < ApplicationController
     @jams = current_user.jams
   end
 
+  def all
+    @jams = Jam.all
+    render 'index.html.erb'
+  end
+
   def new
     @jam = Jam.new
   end

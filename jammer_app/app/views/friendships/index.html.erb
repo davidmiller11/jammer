@@ -1,7 +1,7 @@
 <!-- index.html.erb - friendships -->
-<h1>My Friends</h1>
-<h4><%= link_to 'Add Friends', new_user_friendship_path(current_user) %></h4>
+<h2>My Jammers</h2>
 
+<br />
 <table>
 <thead>
   <tr>
@@ -22,3 +22,5 @@
   <% end %>
   </tbody>
 </table>
+<br />
+<div><%= link_to 'Add more users to My Jammers list', new_user_friendship_path(current_user) %></div>

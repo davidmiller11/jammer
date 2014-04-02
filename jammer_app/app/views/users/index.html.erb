@@ -1,12 +1,12 @@
 <!-- index.html.erb - users -->
-<h1>All users</h1>
-
+<h2>All jammers</h2>
+<br />
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Add Friend</th>
+      
       <% if current_user.admin %>
         <th>Admin?</th>
         <th></th>
@@ -20,11 +20,7 @@
   <tr>
       <td><%= user.full_name %></td>
       <td><%= user.email %></td>
-      <td>
-      <% if !current_user.friends.include?(user) && user != current_user %>
-        <%= link_to 'add friend', new_user_friendship_path(current_user) %>
-        <% end %>
-      </td>
+
       <% if current_user.admin %>
         <td><%= user.admin %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -35,3 +31,5 @@
 
   </tbody>
 </table>
+<br />
+<div><%= link_to 'Add Jammers to Friends List', new_user_friendship_path(current_user) %></div>

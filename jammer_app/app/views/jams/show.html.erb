@@ -17,7 +17,7 @@
   </div>
 
   <div>
-    <strong>Created at:</strong> <%= @jam.created_at %>
+    <strong>Created at:</strong> <%= @jam.created_at.strftime("%A, %B %e, %Y at %l:%M %P") %>
   </div>
 </p>
 
@@ -28,7 +28,7 @@
     <tr>
       <th>Name</th>
       <% @jam.jam_times.order(:start_time).order(:start_date).each do |jam_time| %>
-        <th><%= "#{jam_time.start_date} #{jam_time.start_time}" %></th>
+        <th><%= "#{jam_time.start_date_formatted}" %><br/><%= "#{jam_time.start_time_formatted}" %></th>
       <% end %>
       <th></th>
       <th></th>
@@ -45,15 +45,16 @@
           <td><%= @rsvp.answer %></td>
         <% end %>
         
-        <% if current_user.id == guest_id || current_user.admin %>
-        <td>
-          <%= link_to 'Edit', edit_rsvp_path(@rsvp) %>
-            </td>
+        <% if current_user.id == guest_id || current_user.admin || current_user.id == @jam.user_id%>
+          <td>
+            <% if current_user.id == guest_id || current_user.admin %>
+              <%= link_to 'Edit', edit_rsvp_path(@rsvp) %>
+            <% end %>
+          </td>
           <td>
             <%= link_to 'Delete', @rsvp, method: :delete, data: { confirm: "Are you sure??"} %>
           </td>
         <% end %>
-        
       </tr>
     <% end %>
   </tbody>
@@ -63,9 +64,11 @@
 
 <p>
 <% session[:jam_id] = @jam.id %>
-<div><%= link_to 'Add another time', new_jam_time_path %></div>
-<div><%= link_to 'Invite friends', new_rsvp_path %></div>
-<div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
-<div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Sure you wanna delete this Jam?'} %></div>
+<% if current_user.id == @jam.user_id || current_user.admin %>
+  <div><%= link_to 'Add another time', new_jam_time_path %></div>
+  <div><%= link_to 'Invite friends', new_rsvp_path %></div>
+  <div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
+  <div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Sure you wanna delete this Jam?'} %></div>
+<% end %>
 <div><%= link_to 'Back', jams_path %></div>
 </p>

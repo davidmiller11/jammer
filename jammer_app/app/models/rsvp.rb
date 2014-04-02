@@ -2,6 +2,8 @@
 class Rsvp < ActiveRecord::Base
   belongs_to :jam_time
 
+  validates :answer, inclusion: { in: ["yes", "no", "ifnec", nil], message: "%{value} is not a valid answer"}
+
   def self.create_many(j_times, guest_ids)
     @j_times = j_times
     @guest_ids = guest_ids

@@ -1,12 +1,21 @@
 <!-- new.html.erb - rsvps -->
 <h2>Inviting friends to Jam</h2>
 
+<%= render text: session.inspect %>
+
+<h4>Select all friends to invite:</h4>
 <%= form_tag '/rsvps' do %>
+
+  <% @jam = Jam.find(session[:jam_id]) %>
+  <% @invitee_ids = @jam.guest_ids %>
 
   <% @user.friends.each do |friend| %>
     
-    <%= check_box_tag("invitees[#{friend.id}") %>
-    <%= label_tag("invitees[#{friend.id}", friend.full_name) %><br />
+    <% if !@invitee_ids.include?(friend.id) %>
+
+      <%= check_box_tag("invitees[#{friend.id}") %>
+      <%= label_tag("invitees[#{friend.id}", friend.full_name) %><br />
+    <% end %>
 
   <% end %>
 

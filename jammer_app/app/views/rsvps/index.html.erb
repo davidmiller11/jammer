@@ -1,5 +1,5 @@
 <!-- index.html.erb - rsvps -->
-<h2>People wanna Jam with me</h2>
+<h2>Look, Ma!  People wanna Jam with me!</h2>
 
 <% @jams_invited_to.each do |jam| %>
 
@@ -17,11 +17,8 @@
     <strong>Finalized?</strong> <%= jam.finalized %>
   </div>
   <div>
-    <strong>Created by:</strong> <%= User.find(jam.user_id).full_name %>
+    <strong>Invited by:</strong> <%= User.find(jam.user_id).full_name %>
   </div>
-  <div>
-    <strong>Created at:</strong> <%= jam.created_at %>
-  </div>  
   
 </p>
 
