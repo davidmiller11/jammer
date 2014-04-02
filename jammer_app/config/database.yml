@@ -56,5 +56,4 @@ production:
   encoding: unicode
   database: jammer_app_production
   pool: 5
-  username: dmiller
   password:
