@@ -36,7 +36,6 @@ class RsvpsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
@@ -65,16 +64,13 @@ class RsvpsController < ApplicationController
     @user_rsvps.each do |user_rsvp|
       if @jam_time_ids.include?(user_rsvp.jam_time_id.to_i)
         @rsvp_ids_to_edit << user_rsvp.id
-        # binding.pry
       end 
     end
 
-    # render text: @rsvp_ids_to_edit.inspect
     params[:rsvp_ids_to_edit] = @rsvp_ids_to_edit
   end
 
   def update
-    # render text: params.inspect
     @answers = params[:answers]
 
     @answers.each do |rsvp_id, rsvp_answer|
@@ -90,46 +86,44 @@ class RsvpsController < ApplicationController
 
   def destroy
     @rsvp = Rsvp.find(params[:id])
-
-    if !current_user.admin && (current_user.id != @rsvp.user_id)
-      redirect_to :back
-    end
-
     @user = User.find(@rsvp.user_id)
     @jam_time = JamTime.find(@rsvp.jam_time_id)
     @jam = Jam.find(@jam_time.jam_id)
 
-    # find me all the rsvps for given user
-    @user_rsvps = Rsvp.where(user_id: @user.id)
+    if !current_user.admin && (current_user.id != @rsvp.user_id) && current_user.id != @jam.user_id
+      redirect_to :back
+    else
 
-    # find me all the jam_times belonging to the jam we wish to edit rsvps for
-    @jam_times = JamTime.where(jam_id: @jam.id)
-    @jam_time_ids = @jam_times.map do |jam_time|
-      jam_time.id
+      # find me all the rsvps for given user
+      @user_rsvps = Rsvp.where(user_id: @user.id)
+
+      # find me all the jam_times belonging to the jam we wish to edit rsvps for
+      @jam_times = JamTime.where(jam_id: @jam.id)
+      @jam_time_ids = @jam_times.map do |jam_time|
+        jam_time.id
+      end
+
+      # find rsvp_ids for the rsvps where user and jam_time match
+      @rsvp_ids_to_delete = []
+
+      @user_rsvps.each do |user_rsvp|
+        if @jam_time_ids.include?(user_rsvp.jam_time_id.to_i)
+          @rsvp_ids_to_delete << user_rsvp.id
+        end 
+      end
+
+      @jam = Jam.find(JamTime.find(@rsvp.jam_time_id).jam_id)
+
+
+      # need to destroy more than one RSVP
+      @rsvp_ids_to_delete.each do |rsvp_id|
+
+        Rsvp.find(rsvp_id).destroy
+
+      end
+
+      redirect_to @jam
     end
-
-    # find rsvp_ids for the rsvps where user and jam_time match
-    @rsvp_ids_to_delete = []
-
-    @user_rsvps.each do |user_rsvp|
-      if @jam_time_ids.include?(user_rsvp.jam_time_id.to_i)
-        @rsvp_ids_to_delete << user_rsvp.id
-        # binding.pry
-      end 
-    end
-
-    @jam = Jam.find(JamTime.find(@rsvp.jam_time_id).jam_id)
-
-
-    # need to destroy more than one RSVP
-    @rsvp_ids_to_delete.each do |rsvp_id|
-
-      Rsvp.find(rsvp_id).destroy
-
-    end
-
-    redirect_to @jam
-
   end
 
   # private
