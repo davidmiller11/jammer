@@ -51,6 +51,7 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem 'foreman', '~> 0.63.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
