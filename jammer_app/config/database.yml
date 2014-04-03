@@ -19,7 +19,6 @@ development:
   encoding: unicode
   database: jammer_app_development
   pool: 5
-  username: dmiller
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
