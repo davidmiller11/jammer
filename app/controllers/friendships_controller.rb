@@ -1,6 +1,8 @@
 # friendships_controller.rb
 class FriendshipsController < ApplicationController
 
+  before_action :require_authentication
+
   def all
     if current_user.admin == true
       @friendships = Friendship.all
@@ -28,8 +30,12 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = Friendship.find(params[:id])
-    @friendship.destroy
-    redirect_to user_friendships_path(current_user)
+    if current_user.admin || current_user.id == @friendship.user_id  
+      @friendship.destroy
+      redirect_to user_friendships_path(current_user)
+    else
+      redirect_to :back
+    end
   end
 
   private

@@ -25,15 +25,19 @@ class JamTimesController < ApplicationController
   end
 
   def show
+    redirect_to :back
   end
 
   def edit
+    redirect_to :back
   end
 
   def update
+    redirect_to :back
   end
 
   def destroy
+    redirect_to :back
   end
 
   private
