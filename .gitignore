@@ -14,4 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# To mask password when submitting on GitHub
 .env
+/config/initializers/app_env_vars.rb
