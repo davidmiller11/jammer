@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>Jammer</h1>
-  <h2>Hey <%= @user.full_name %>!  <%= User.find(@jam.user_id).full_name %> wants to Jam with you!</h2>
+  <h2>Hey <%= @user.first_name %>!  <%= User.find(@jam.user_id).full_name %> wants to Jam with you!</h2>
   <h3>Jam details:</h3>
   <p>
     <div><strong>Name: </strong><%= @jam.name %></div>

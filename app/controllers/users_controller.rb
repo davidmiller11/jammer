@@ -50,13 +50,20 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+
     if !current_user.admin
       redirect_to :back
+    else
+      User.transaction do
+        
+        # Before deleting user, delete friendships where user is the friend
+        Friendship.where(friend_id: @user.id).delete_all
+
+        @user.destroy
+      end
+      
+      redirect_to users_path
     end
-
-    @user.destroy
-    redirect_to users_path
-
   end
 
   private

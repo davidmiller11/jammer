@@ -32,8 +32,8 @@ JammerApp::Application.configure do
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'localhost:3000',
-    user_name: 'jammersquad',
-    password: 'puppiepie1',
+    user_name: ENV["EMAIL"],
+    password: ENV["PASSWORD"],
     authentication: 'plain',
     enable_starttls_auto: true
   }

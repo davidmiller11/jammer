@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, presence: true
 
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships

@@ -9,7 +9,7 @@ class RsvpsController < ApplicationController
     @jam = Jam.find(session[:jam_id])
     @user = @jam.user
 
-    if @user.id == current_user.id || current_user.admin
+    if current_user.id == @user.id || current_user.admin
       @rsvp = Rsvp.new
     else
       redirect_to @jam
@@ -27,10 +27,13 @@ class RsvpsController < ApplicationController
     end  
 
     # @invitee_user_ids has array of user_id's
-
     Rsvp.create_many(@jam.jam_times, @invitee_user_ids)
 
-    UserMailer.invite_email(@jam, @invitee_user_ids).deliver
+    # Send an invite_email to each invited user
+    @invitee_user_ids.each do |invitee_user_id|
+      UserMailer.invite_email(@jam, invitee_user_id).deliver
+    end
+    
     
     redirect_to @jam
   end

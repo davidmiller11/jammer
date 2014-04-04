@@ -9,16 +9,10 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Welcome to Jammer!')
   end
 
-  def invite_email(jam, user_ids)
-    @user_ids = user_ids
-
+  def invite_email(jam, user_id)
+    @user = User.find(user_id)
     @jam = jam
     @url = 'http://localhost:3000/login'
-
-    @user_ids.each do |user_id|
-      @user = User.find(user_id)
-      mail(to: @user.email, subject: 'New Jam Request!')
-    end
-
+    mail(to: @user.email, subject: 'New Jam Request!')
   end
 end
