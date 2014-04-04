@@ -5,14 +5,14 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url = 'http://localhost:3000/login'
+    @url = 'http://jammer.herokuapp.com/login'
     mail(to: @user.email, subject: 'Welcome to Jammer!')
   end
 
   def invite_email(jam, user_id)
     @user = User.find(user_id)
     @jam = jam
-    @url = 'http://localhost:3000/login'
+    @url = 'http://jammer.herokuapp.com/login'
     mail(to: @user.email, subject: 'New Jam Request!')
   end
 end
