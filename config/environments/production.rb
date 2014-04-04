@@ -82,7 +82,7 @@ JammerApp::Application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    domain: 'localhost:3000',
+    domain: 'jammer.herokuapp.com',
     user_name: ENV["EMAIL"],
     password: ENV["PASSWORD"],
     authentication: 'plain',
