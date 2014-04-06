@@ -1,8 +1,8 @@
 <!-- new.html.erb - friendships -->
 <h2>Add user to Friends List</h2>
 
+<!-- fyi, default method for form_tag is POST -->
 <%= form_tag "/users/#{current_user.id}/friendships" do %>
-  <!-- default method is post -->
 
   <% @other_users.each do |user| %>
     <div>

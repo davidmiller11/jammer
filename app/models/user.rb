@@ -17,8 +17,18 @@ class User < ActiveRecord::Base
     return self.admin ? "Admin: Viewing all Jams" : "I made these Jams"
   end
 
+  def other_users
+    return User.all.map do |user|
+      if !user.admin && user != self && !self.friends.include?(user)
+        user
+      end
+    end
+  end
+
+
   # returns all the jams in an array that a user has been invited to
   def jams_invited_to
+
     # get array of all rsvps for user
     @rsvps = Rsvp.where(user_id: self.id)
 

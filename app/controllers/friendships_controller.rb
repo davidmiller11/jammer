@@ -15,8 +15,7 @@ class FriendshipsController < ApplicationController
 
   def new
     @friendship = Friendship.new
-    @other_users = User.all
-    @other_users.delete_at(@other_users.index(current_user))
+    @other_users = current_user.other_users
   end
 
   def create
