@@ -10,4 +10,5 @@ class JamTime < ActiveRecord::Base
   def start_time_formatted
     return self.start_time.strftime("%l:%M %P")
   end
+
 end

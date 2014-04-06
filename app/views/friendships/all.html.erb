@@ -1,7 +1,6 @@
 <!-- all.html.erb - friendships -->
 <!-- a view for the admin to view all friendships -->
-
-<h1>Admin: All Friendships</h1>
+<h2>Admin: All Friendships</h2>
 
 <table>
   <thead>
@@ -15,13 +14,13 @@
   </thead>
   <tbody>
 
-  <% @friendships.each do |friendship| %>
+  <% @f_ships.each do |f_ship| %>
     <tr>
-      <td><%= friendship.id %></td>
-      <td><%= friendship.user_id %></td>
-      <td><%= friendship.user.full_name %></td>
-      <td><%= friendship.friend_id %></td>
-      <td><%= friendship.friend.full_name %></td>
+      <td><%= f_ship.id %></td>
+      <td><%= f_ship.user_id %></td>
+      <td><%= f_ship.user.full_name %></td>
+      <td><%= f_ship.friend_id %></td>
+      <td><%= f_ship.friend.full_name %></td>
     </tr>
   <% end %>
 

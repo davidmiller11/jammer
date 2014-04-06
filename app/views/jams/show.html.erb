@@ -21,52 +21,51 @@
 
 <% if !@jam.jam_times.empty? %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <% @jam.jam_times.order(:start_date).each do |jam_time| %>
-        <th><%= "#{jam_time.start_date_formatted}" %><br /><%= "#{jam_time.start_time_formatted}" %></th>
-      <% end %>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jam.invitees.each do |invitee| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= invitee.full_name %></td>
-        <% @jam.jam_times.order(:start_time).each do |jam_time| %>
-          <% p jam_time %>
-          <% @rsvp = Rsvp.find_by(:jam_time_id => jam_time.id, :user_id => invitee.id) %>
-          <td><%= @rsvp.answer %></td>
+        <th>Name</th>
+        <% @jam.jam_times.order(:start_date).order(:start_time).each do |jam_time| %>
+          <th><%= "#{jam_time.start_date_formatted}" %><br /><%= "#{jam_time.start_time_formatted}" %></th>
         <% end %>
-        
-        <% if current_user.id == invitee.id || current_user.admin || current_user.id == @jam.user_id%>
-          <td>
-            <% if current_user.id == invitee.id || current_user.admin %>
-              <%= link_to 'Edit', edit_rsvp_path(@rsvp) %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to 'Delete', @rsvp, method: :delete, data: { confirm: "Are you sure??"} %>
-          </td>
-        <% end %>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @jam.invitees.each do |invitee| %>
+        <tr>
+          <td><%= invitee.full_name %></td>
+          <% @jam.jam_times.order(:start_date).order(:start_time).each do |jam_time| %>
+            <% @rsvp = jam_time.rsvps.find_by(user_id: invitee.id) %>
+            <td><%= @rsvp.answer %></td>
+          <% end %>
+          
+          <% if current_user == invitee || current_user.admin || current_user == @jam.creator%>
+            <td>
+              <% if current_user == invitee || current_user.admin %>
+                <%= link_to '(edit)', edit_rsvp_path(@rsvp) %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to '(delete)', @rsvp, method: :delete, data: { confirm: "Delete this RSVP?"} %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <% end %>
 
 <p>
-<% session[:jam_id] = @jam.id %>
-<% if current_user.id == @jam.user_id || current_user.admin %>
-  <div><%= link_to 'Add another time', new_jam_time_path %></div>
-  <div><%= link_to 'Invite friends', new_rsvp_path %></div>
-  <div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
-  <div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Sure you wanna delete this Jam?'} %></div>
-<% end %>
-<div><%= link_to 'Back', jams_path %></div>
+  <% session[:jam_id] = @jam.id %>
+  <% if current_user.id == @jam.user_id || current_user.admin %>
+    <div><%= link_to 'Add another time', new_jam_time_path %></div>
+    <div><%= link_to 'Invite friends', new_rsvp_path %></div>
+    <div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
+    <div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Delete this Jam?'} %></div>
+  <% end %>
+  <div><%= link_to 'Back', jams_path %></div>
 </p>

@@ -17,8 +17,7 @@ class JamsController < ApplicationController
   end
 
   def create
-    @jam = Jam.create(jam_params)
-    @jam.finalized = false
+    @jam = current_user.jams.create(jam_params)
     @jam.user_id = current_user.id
     @jam.save
     session[:jam_id] = @jam.id

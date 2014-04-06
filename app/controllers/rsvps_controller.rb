@@ -6,8 +6,10 @@ class RsvpsController < ApplicationController
   end
 
   def new
+    # inviting 1 or more friends to jam
     @jam = Jam.find(session[:jam_id])
-    @user = @jam.user
+    @user = @jam.creator
+    @invitee_ids = @jam.invitee_ids
 
     if current_user.id == @user.id || current_user.admin
       @rsvp = Rsvp.new
@@ -33,7 +35,6 @@ class RsvpsController < ApplicationController
     @invitee_user_ids.each do |invitee_user_id|
       UserMailer.invite_email(@jam, invitee_user_id).deliver
     end
-    
     
     redirect_to @jam
   end

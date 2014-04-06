@@ -1,5 +1,5 @@
 <!-- index.html.erb - friendships -->
-<h2>My Jammers</h2>
+<h2>My Friends</h2>
 
 <br />
 <table>
@@ -10,17 +10,17 @@
   </tr>
 </thead>
 <tbody>
-  <% @friendships.each do |friendship| %>
+  <% @f_ships.each do |f_ship| %>
   <tr>
     <td>
-    <%= friendship.friend.full_name %>
+    <%= f_ship.friend.full_name %>
     </td>
     <td>
-    <%= link_to 'Remove', friendship_path(friendship), method: :delete, data: { confirm: "Are you sure you want to remove #{friendship.friend.first_name} as a friend?"} %>
+    <%= link_to '(remove)', friendship_path(f_ship), method: :delete, data: { confirm: "Are you sure you want to remove #{f_ship.friend.first_name} as a friend?"} %>
     </td>
   </tr>
   <% end %>
   </tbody>
 </table>
 <br />
-<div><%= link_to 'Add more users to My Jammers list', new_user_friendship_path(current_user) %></div>
+<div><%= link_to 'Add users to my Friends List', new_user_friendship_path(current_user) %></div>

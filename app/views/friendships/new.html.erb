@@ -1,21 +1,16 @@
 <!-- new.html.erb - friendships -->
-<h1>Add a Jammer to your friend list</h1>
+<h2>Add user to Friends List</h2>
 
 <%= form_tag "/users/#{current_user.id}/friendships" do %>
   <!-- default method is post -->
 
   <% @other_users.each do |user| %>
-    
     <div>
-      
       <% if !current_user.friends.include?(user) && !user.admin %>
       <%= user.first_name + " " + user.last_name %>
       <%= radio_button_tag 'friendship[friend_id]', user.id %>
       <% end %>
     </div>
-
-   
-
   <% end %>
 
  <%= hidden_field_tag 'friendship[user_id]', current_user.id %>

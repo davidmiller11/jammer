@@ -1,10 +1,9 @@
 # jam_spec.rb
 require 'spec_helper'
-require 'user'
 
 describe Jam do
   
-  describe '#guest_ids' do
+  describe '#invitee_ids' do
     pending
   end
 

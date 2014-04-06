@@ -59,6 +59,9 @@ class UsersController < ApplicationController
         # Before deleting user, delete friendships where user is the friend
         Friendship.where(friend_id: @user.id).delete_all
 
+        # Before deleting user, delete all of user's rsvps.
+        Rsvp.where(user_id: @user.id).delete_all
+
         @user.destroy
       end
       

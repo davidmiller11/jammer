@@ -4,9 +4,6 @@
 <h4>Select all friends to invite:</h4>
 <%= form_tag '/rsvps' do %>
 
-  <% @jam = Jam.find(session[:jam_id]) %>
-  <% @invitee_ids = @jam.guest_ids %>
-
   <% @user.friends.each do |friend| %>
     
     <% if !@invitee_ids.include?(friend.id) %>

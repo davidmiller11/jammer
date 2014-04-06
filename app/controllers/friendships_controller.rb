@@ -4,16 +4,13 @@ class FriendshipsController < ApplicationController
   before_action :require_authentication
 
   def all
-    if current_user.admin == true
-      @friendships = Friendship.all
-      render 'all'
-    else
-      redirect_to root_path
-    end
+    @f_ships = Friendship.all
+    current_user.admin ? render 'all' : redirect_to root_path
   end
 
   def index
-    @friendships = current_user.friendships
+    # Index of current user's friends
+    @f_ships = current_user.friendships
   end
 
   def new
