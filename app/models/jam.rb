@@ -4,10 +4,13 @@ class Jam < ActiveRecord::Base
   belongs_to :user
   has_many :jam_times, dependent: :destroy
 
+  def created_at_formatted
+    return self.created_at.strftime("%A, %B %e, %Y at %l:%M %P")
+  end
+
   # returns the user_id's of a jam's invited users in an array
   def guest_ids
     guest_id_ary = self.jam_times.first.rsvps.map { |rsvp| rsvp.user_id }
-
     return guest_id_ary
   end
 
