@@ -11,11 +11,9 @@
   <div>
     <strong>Finalized?</strong> <%= @jam.finalized %>
   </div>
-
   <div>
     <strong>Created by:</strong> <%= User.find(@jam.user_id).full_name %>
   </div>
-
   <div>
     <strong>Created at:</strong> <%= @jam.created_at_formatted %>
   </div>
@@ -27,8 +25,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <% @jam.jam_times.order(:start_time).order(:start_date).each do |jam_time| %>
-        <th><%= "#{jam_time.start_date_formatted}" %><br/><%= "#{jam_time.start_time_formatted}" %></th>
+      <% @jam.jam_times.order(:start_date).each do |jam_time| %>
+        <th><%= "#{jam_time.start_date_formatted}" %><br /><%= "#{jam_time.start_time_formatted}" %></th>
       <% end %>
       <th></th>
       <th></th>
@@ -39,7 +37,7 @@
     <% @jam.guest_ids.each do |guest_id| %>
       <tr>
         <td><%= User.find(guest_id).full_name %></td>
-        <% @jam.jam_times.order(:start_time).order(:start_date).each do |jam_time| %>
+        <% @jam.jam_times.order(:start_time).each do |jam_time| %>
           <% p jam_time %>
           <% @rsvp = Rsvp.find_by(:jam_time_id => jam_time.id, :user_id => guest_id) %>
           <td><%= @rsvp.answer %></td>

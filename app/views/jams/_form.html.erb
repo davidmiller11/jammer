@@ -1,14 +1,17 @@
 <%= form_for @jam do |f| %>
-
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
-
-  <%= f.label :location %>:
-  <%= f.text_field :location %><br />
-
-  <%= f.label 'Description (optional)' %>:
-  <%= f.text_field :description %><br />
-
-  <%= f.submit %>
-
+  <p>
+    <b><%= f.label :name %></b><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <b><%= f.label :location %></b><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <b><%= f.label 'Description (optional)' %></b><br />
+    <%= f.text_field :description %><br />
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>

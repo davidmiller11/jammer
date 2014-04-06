@@ -14,4 +14,9 @@ class Jam < ActiveRecord::Base
     return guest_id_ary
   end
 
+  # returns ary of user objects invited to a jam
+  def invitees
+    invitees = self.jam_times.first.rsvps.map{|rsvp| User.find(rsvp.user_id)}
+    return invitees
+  end
 end
