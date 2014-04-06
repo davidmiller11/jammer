@@ -1,0 +1,14 @@
+<%= form_for @jam do |f| %>
+
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :location %>:
+  <%= f.text_field :location %><br />
+
+  <%= f.label 'Description (optional)' %>:
+  <%= f.text_field :description %><br />
+
+  <%= f.submit %>
+
+<% end %>

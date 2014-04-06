@@ -1,24 +1,21 @@
 <!-- index.html.erb - jams -->
 <h2><%= current_user.index_view_header %></h2>
 
-<% @jams.each do |jam| %>
-
-<p>
-  <div>
-    <strong>Name:</strong> <%= link_to jam.name, jam %>
-  </div>
+<% @jams.each do |j| %>
+  <p>
     <div>
-      <strong>Location:</strong> <%= jam.location %>
+      <strong>Name:</strong> <%= link_to j.name, j %>
     </div>
-  <div>
-    <strong>Description:</strong> <%= jam.description %>
-  </div>
-  <div>
-    <strong>Finalized?</strong> <%= jam.finalized %>
-  </div>  
-  
-</p>
-
+    <div>
+      <strong>Location:</strong> <%= j.location %>
+    </div>
+    <div>
+      <strong>Description:</strong> <%= j.description %>
+    </div>
+    <div>
+      <strong>Finalized?</strong> <%= j.finalized %>
+    </div>      
+  </p>
 <% end %>
 
 <div><%= link_to 'Create new jam', new_jam_path %></div>
