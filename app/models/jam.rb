@@ -19,4 +19,8 @@ class Jam < ActiveRecord::Base
     invitees = self.jam_times.first.rsvps.map{|rsvp| User.find(rsvp.user_id)}
     return invitees
   end
+
+  def creator
+    return User.find(self.user_id)
+  end
 end

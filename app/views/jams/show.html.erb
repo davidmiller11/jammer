@@ -12,7 +12,7 @@
     <strong>Finalized?</strong> <%= @jam.finalized %>
   </div>
   <div>
-    <strong>Created by:</strong> <%= User.find(@jam.user_id).full_name %>
+    <strong>Created by:</strong> <%= @jam.creator.full_name %>
   </div>
   <div>
     <strong>Created at:</strong> <%= @jam.created_at_formatted %>
@@ -34,18 +34,18 @@
   </thead>
 
   <tbody>
-    <% @jam.guest_ids.each do |guest_id| %>
+    <% @jam.invitees.each do |invitee| %>
       <tr>
-        <td><%= User.find(guest_id).full_name %></td>
+        <td><%= invitee.full_name %></td>
         <% @jam.jam_times.order(:start_time).each do |jam_time| %>
           <% p jam_time %>
-          <% @rsvp = Rsvp.find_by(:jam_time_id => jam_time.id, :user_id => guest_id) %>
+          <% @rsvp = Rsvp.find_by(:jam_time_id => jam_time.id, :user_id => invitee.id) %>
           <td><%= @rsvp.answer %></td>
         <% end %>
         
-        <% if current_user.id == guest_id || current_user.admin || current_user.id == @jam.user_id%>
+        <% if current_user.id == invitee.id || current_user.admin || current_user.id == @jam.user_id%>
           <td>
-            <% if current_user.id == guest_id || current_user.admin %>
+            <% if current_user.id == invitee.id || current_user.admin %>
               <%= link_to 'Edit', edit_rsvp_path(@rsvp) %>
             <% end %>
           </td>
