@@ -1,11 +1,5 @@
 <!-- index.html.erb - jams -->
-<% if current_user.admin %>
-  <h2>Admin: Viewing all Jams</h2>
-<% else %>
-  <h2>I made these Jams</h2>
-<% end %>
-
-
+<h2><%= current_user.index_view_header %></h2>
 
 <% @jams.each do |jam| %>
 

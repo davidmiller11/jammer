@@ -1,7 +1,7 @@
 # jams_controller.rb
 class JamsController < ApplicationController
 
-  before_action :require_authentication, only: [:index]
+  before_action :require_authentication
 
   def index
     @jams = current_user.jams

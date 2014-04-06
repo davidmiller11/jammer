@@ -16,6 +16,19 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
 }
 
+.top_header {
+  height: 10px;
+  background-color: rgb(22,173,88);
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 5px;
+}
+
+.notice {
+  color: red;
+}
+
 .container {
   width: 900px;
   /*background-color: yellow;*/
