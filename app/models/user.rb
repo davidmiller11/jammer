@@ -22,14 +22,10 @@ class User < ActiveRecord::Base
   end
 
   def other_users
-    return User.all.map do |user|
-      if !user.admin && user != self && !self.friends.include?(user)
-        user
-      end
-    end
+    return User.all.select { |user| !user.admin && user != self && !self.friends.include?(user) }
   end
 
-  # returns all the jams in an array that a user has been invited to
+  # returns an array of all jams a user has been invited to
   def jams_invited_to
 
     # get array of all rsvps for user

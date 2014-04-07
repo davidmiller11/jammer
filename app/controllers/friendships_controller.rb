@@ -23,8 +23,8 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = Friendship.new(friendship_params)
-    @friendship.save
+    @friendship = Friendship.create(friendship_params)
+    @friendship.update(:user_id => params[:user_id])
     redirect_to user_friendships_path(current_user)
   end
 
@@ -40,7 +40,7 @@ class FriendshipsController < ApplicationController
 
   private
     def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id)
+      params.require(:friendship).permit(:friend_id)
     end
 
 end
