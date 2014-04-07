@@ -4,9 +4,9 @@
 
 * #### ERD
 	http://i.imgur.com/Ie7DSz6.png
-* #### Pivotal Tracker
+#### Pivotal Tracker
 	https://www.pivotaltracker.com/s/projects/1047322
-* #### Heroku
+#### Heroku
 	jammer.herokuapp.com
 
 ##Technologies
