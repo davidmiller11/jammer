@@ -10,31 +10,32 @@
     </ul>
   <% end %>
 
-  <div>
-    <%= f.label :first_name %>
+  <p>
+    First Name<br />
     <%= f.text_field :first_name %>
-
-    <%= f.label :last_name %>
+  </p> 
+  <p>
+    Last Name<br />
     <%= f.text_field :last_name %>
-  </div>
+  </p>
 
-  <div>
-    <%= f.label :email %>
+  <p>
+    <%= f.label :email %><br />
     <%= f.text_field :email %>
-  </div>
+  </p>
 
-  <div>
-    <%= f.label :password %>
+  <p>
+    <%= f.label :password %><br />
     <%= f.password_field :password %>
-  </div>
+  </p>
 
-  <div>
-    <%= f.label :password_confirmation %>
+  <p>
+    Password Confirmation<br />
     <%= f.password_field :password_confirmation %>
-  </div>
+  </p>
 
-  <div>
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
 
 <% end %>
