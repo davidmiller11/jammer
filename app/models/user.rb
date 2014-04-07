@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     return self.first_name + " " + self.last_name
   end
 
+  def user_name
+    return self.email.split("@").first
+  end
+
   def index_view_header
     return self.admin ? "Admin: Viewing all Jams" : "I made these Jams"
   end
@@ -24,7 +28,6 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 
   # returns all the jams in an array that a user has been invited to
   def jams_invited_to
