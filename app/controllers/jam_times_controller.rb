@@ -6,7 +6,7 @@ class JamTimesController < ApplicationController
 
   def new
     @jam = Jam.find(session[:jam_id])
-    if current_user.id == @jam.user_id && @jam.rsvps.empty?
+    if current_user == @jam.creator && @jam.rsvps.empty?
       @jam_time = JamTime.new
     else
       flash[:notice] = "You cannot add another time after you have already invited users to jam.  To add more times, you have to create a new jam."
@@ -17,11 +17,8 @@ class JamTimesController < ApplicationController
   def create
     @jam = Jam.find(session[:jam_id])
     if @jam.rsvps.empty?
-      @jam_time = JamTime.create(jam_time_params)
-      @jam.jam_times << @jam_time
-      
+      @jam_time = @jam.jam_times.create(jam_time_params)
       session[:jam_time_id] = @jam_time.id
-      # redirect_to new_rsvp_path
     end
       redirect_to @jam
   end
