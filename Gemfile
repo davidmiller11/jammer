@@ -49,6 +49,8 @@ group :development, :test do
   gem 'annotate'
 end
 
+gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
+
 group :production do
   gem 'rails_12factor'
 end

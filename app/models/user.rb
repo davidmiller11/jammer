@@ -1,5 +1,6 @@
 # user.rb
 class User < ActiveRecord::Base
+  # has_secure_password automatically adds validation of presence of password and confirmation on create
   has_secure_password
 
   validates :email, uniqueness: true, presence: true
