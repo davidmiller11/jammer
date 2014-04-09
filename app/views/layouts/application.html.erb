@@ -20,7 +20,7 @@
         <div class="nav">
           <% if current_user.admin == true %>
             <span><%= link_to 'All Friendships (admin)', '/friendships/all' %></span> |
-            <span><%= link_to 'All Jams (admin)', '/jams/all' %></span> |
+            <span><%= link_to 'All Jams (admin)', jams_all_path %></span> |
           <% end %>
           <span><%= link_to "My Jams (#{current_user.jams.count})", jams_path %></span> |
           <span><%= link_to "My Invitations (#{current_user.jams_invited_to.count})", rsvps_path %></span> |

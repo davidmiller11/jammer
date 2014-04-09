@@ -17,7 +17,7 @@ JammerApp::Application.routes.draw do
   resources :friendships, only: [:destroy]
 
   resources :jams
-  resources :jam_times
+  resources :jam_times, only: [:index, :new, :create, :destroy]
   resources :rsvps
 
   # The priority is based upon order of creation: first created -> highest priority.

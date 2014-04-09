@@ -11,7 +11,17 @@ class User < ActiveRecord::Base
   has_many :jams, dependent: :destroy
 
   def full_name
-    return self.first_name + " " + self.last_name
+    f = self.first_name
+    l = self.last_name
+    if f && l
+      return f + " " + l
+    elsif f
+      return f
+    elsif l
+      return l
+    else
+      return ''
+    end
   end
 
   def user_name
