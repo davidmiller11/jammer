@@ -14,13 +14,13 @@
   </thead>
   <tbody>
 
-  <% @f_ships.each do |f_ship| %>
+  <% @friendships.each do |f| %>
     <tr>
-      <td><%= f_ship.id %></td>
-      <td><%= f_ship.user_id %></td>
-      <td><%= f_ship.user.full_name %></td>
-      <td><%= f_ship.friend_id %></td>
-      <td><%= f_ship.friend.full_name %></td>
+      <td><%= f.id %></td>
+      <td><%= f.user_id %></td>
+      <td><%= f.user.full_name %></td>
+      <td><%= f.friend_id %></td>
+      <td><%= f.friend.full_name %></td>
     </tr>
   <% end %>
 

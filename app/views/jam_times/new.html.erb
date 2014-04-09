@@ -1,13 +1,24 @@
 <!-- new.html.erb - jam_times -->
-<h2>Adding dates for <%= @jam.name %></h2>
+<h2>Propose new time for <%= @jam.name %></h2>
+
+<% if @jam_time.errors.any? %>
+  Please correct the following errors: 
+  <ul>
+    <% @jam_time.errors.full_messages.each do |msg| %>
+
+      <li class='error-msg'><%= msg %></li>
+
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_for @jam_time do |f| %>
   <p>
-    <%= f.label :start_date %><br />
+    Date:<br />
     <%= f.date_field :start_date %>
   </p>
   <p>
-    <%= f.label :start_time %><br />
+    Time:<br />
     <%= f.time_field :start_time %>
   </p>
   <p>

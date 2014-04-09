@@ -1,0 +1,7 @@
+.field_with_errors input {
+  border: 2px solid red;
+}
+
+li.error-msg {
+  color: #ff0000;
+}

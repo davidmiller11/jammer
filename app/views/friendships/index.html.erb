@@ -11,16 +11,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @f_ships.each do |f_ship| %>
+    <% @friendships.each do |f| %>
       <tr>
         <td>
-          <%= f_ship.friend.full_name %>
+          <%= f.friend.full_name %>
         </td>
         <td>
-          <%= f_ship.friend.user_name %>
+          <%= f.friend.user_name %>
         </td>
         <td>
-          <%= link_to '(remove)', friendship_path(f_ship), method: :delete, data: { confirm: "Are you sure you want to remove #{f_ship.friend.first_name} as a friend?"} %>
+          <%= link_to '(remove)', friendship_path(f), method: :delete, data: { confirm: "Are you sure you want to remove #{f.friend.first_name} as a friend?"} %>
         </td>
       </tr>
     <% end %>

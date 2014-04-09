@@ -17,10 +17,16 @@ class JamTimesController < ApplicationController
   def create
     @jam = Jam.find(session[:jam_id])
     if @jam.rsvps.empty?
-      @jam_time = @jam.jam_times.create(jam_time_params)
-      session[:jam_time_id] = @jam_time.id
-    end
+      @jam_time = @jam.jam_times.new(jam_time_params)
+      if @jam_time.save
+        session[:jam_time_id] = @jam_time.id
+        redirect_to @jam
+      else
+        render :new
+      end
+    else
       redirect_to @jam
+    end
   end
 
   def destroy

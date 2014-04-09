@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
 
   def all
     if current_user.admin
-      @f_ships = Friendship.all
+      @friendships = Friendship.all
       render 'all'
     else
       redirect_to root_path
@@ -14,7 +14,7 @@ class FriendshipsController < ApplicationController
 
   def index
     # Index of current user's friends
-    @f_ships = current_user.friendships
+    @friendships = current_user.friendships
   end
 
   def new
@@ -34,7 +34,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = Friendship.find(params[:id])
-    if current_user.admin || current_user.id == @friendship.user_id  
+    if current_user.id == @friendship.user_id || current_user.admin 
       @friendship.destroy
       redirect_to user_friendships_path(current_user)
     else
