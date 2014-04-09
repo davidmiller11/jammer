@@ -7,37 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="top_header"></div>
-  <% if current_user %>
-    <div>
-    Hi, <%= current_user.first_name  %> | 
-    <span><%= link_to 'Logout', logout_path %></span>
+  <div class="container">
+    <header class="sixteen columns">
+      <div class="top_header"></div>
+      <% if current_user %>
+        <div>
+          Hi, <%= current_user.first_name  %> | 
+          <span><%= link_to 'Logout', logout_path %></span>
+          <div><%= image_tag 'logo.png' %></div>
+        </div>
+        <h1><%= link_to 'Jammer', current_user %></h1>
+        <div class="nav">
+          <% if current_user.admin == true %>
+            <span><%= link_to 'All Friendships (admin)', '/friendships/all' %></span> |
+            <span><%= link_to 'All Jams (admin)', '/jams/all' %></span> |
+          <% end %>
+          <span><%= link_to "My Jams (#{current_user.jams.count})", jams_path %></span> |
+          <span><%= link_to "My Invitations (#{current_user.jams_invited_to.count})", rsvps_path %></span> |
+          <span><%= link_to "My Friends (#{current_user.friends.count})", user_friendships_path(current_user) %></span> |
+          <span><%= link_to "All Users (#{User.all.count})", users_path %></span>
+        </div> <!-- END NAV -->
+      <% else %>
+        <span><%= link_to 'Login', login_path %></span>
+        | <span><%= link_to 'Sign up', new_user_path %></span>
+        <div><%= image_tag 'logo.png' %></div>
+      <% end %>
+
+      <div class="flash-container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: name %>
+        <% end %>
+      <!-- </div> END FLASH-CONTAINER -->
+    </header>
+    <div class="wrapper">
+      <%= yield %>
     </div>
-    <h1><%= link_to 'Jammer', current_user %></h1>
-    <div class="nav">
-    <% if current_user.admin == true %>
-      <span><%= link_to 'All Friendships (admin)', '/friendships/all' %></span> |
-      <span><%= link_to 'All Jams (admin)', '/jams/all' %></span> |
-    <% end %>
-      <span><%= link_to "My Jams (#{current_user.jams.count})", jams_path %></span> |
-      <span><%= link_to "My Invitations (#{current_user.jams_invited_to.count})", rsvps_path %></span> |
-      <span><%= link_to "My Friends (#{current_user.friends.count})", user_friendships_path(current_user) %></span> |
-      <span><%= link_to "All Users (#{User.all.count})", users_path %></span>
-
-    </div>
-  <% else %>
-    <span><%= link_to 'Login', login_path %></span>
-    | <span><%= link_to 'Sign up', new_user_path %></span>
-    <h1><%= image_tag 'logo.png' %></h1>
-    
-  <% end %>
-
-<div class="container">
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %>
-
-  <%= yield %>
-</div>
+  </div><!-- END CONTAINER -->
 </body>
 </html>

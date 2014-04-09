@@ -1,5 +1,7 @@
 #Jammer README
 
+* add background on project, what it does, how i built it.
+
 ##Links
 
 ####ERD
