@@ -14,9 +14,8 @@
         <div>
           Hi, <%= current_user.first_name  %> | 
           <span><%= link_to 'Logout', logout_path %></span>
-          <div><%= image_tag 'logo.png' %></div>
+          <div class='logo'><%= image_tag 'logo.png' %></div>
         </div>
-        <h1><%= link_to 'Jammer', current_user %></h1>
         <div class="nav">
           <% if current_user.admin == true %>
             <span><%= link_to 'All Friendships (admin)', '/friendships/all' %></span> |
@@ -30,7 +29,7 @@
       <% else %>
         <span><%= link_to 'Login', login_path %></span>
         | <span><%= link_to 'Sign up', new_user_path %></span>
-        <div><%= image_tag 'logo.png' %></div>
+        <div class='logo'><%= image_tag 'logo.png' %></div>
       <% end %>
 
       <div class="flash-container">
