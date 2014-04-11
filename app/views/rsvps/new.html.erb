@@ -1,22 +1,24 @@
-<!-- new.html.erb - rsvps -->
+new.html.erb - rsvps -->
 <h2>Inviting friends to Jam</h2>
-
 <h4>Select all friends to invite:</h4>
+
 <div class="main-wrapper">
-<%= form_tag '/rsvps' do %>
 
-  <% @user.friends.each do |friend| %>
-    
-    <% if !@invitee_ids.include?(friend.id) %>
-<div class="item">
-      <%= check_box_tag("invitees[#{friend.id}") %>
-      <div class="checkbox-label"><%= label_tag("invitees[#{friend.id}", friend.full_name) %></div><br />
- </div>   
-    <% end %>
+  <%= form_tag '/rsvps' do %>
 
-  <% end %>
+    <% @uninvited_friends.each do |friend| %>
 
-  <%= submit_tag %>
+      <div class="item">
+        <%= check_box_tag("invitees[#{friend.id}") %>
 
-<% end %>
-</div>
+        <div class="checkbox-label"><%= label_tag("invitees[#{friend.id}", friend.full_name) %></div><br />
+
+      </div> <!-- END ITEM -->   
+
+    <% end %> <!-- END EACH -->
+
+    <%= submit_tag %>
+
+  <% end %> <!-- END FORM TAG -->
+
+</div> <!-- END MAIN-WRAPPER
