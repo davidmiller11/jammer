@@ -1,3 +1,4 @@
+<div class="main-wrapper">
 <%= form_for @jam do |f| %>
   <p>
     Name<br />
@@ -9,9 +10,10 @@
   </p>
   <p>
     Description (optional)<br />
-    <%= f.text_field :description %><br />
+    <%= f.text_field :description %>
   </p>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+</div>

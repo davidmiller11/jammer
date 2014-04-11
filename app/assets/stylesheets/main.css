@@ -88,11 +88,11 @@ tr:last-child td {
 }
 
 .text-block {
-  margin: 0 100px 20px;
+  margin: 0 200px 20px;
   /*border: 2px solid red;*/
 }
 
-.login {
+.main-wrapper {
   /*border: 5px solid green;*/
   width: 220px;
   margin: 0 auto;
@@ -106,8 +106,7 @@ tr:last-child td {
 
 .item {
   /*border: 1px solid green;*/
-  display: inline-block;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 /*.single-item {
@@ -121,6 +120,11 @@ tr:last-child td {
 
 .container {
   /*border: 2px solid blue;*/
+}
+
+.checkbox-label {
+  display: inline-block;
+  clear: right;
 }
 
 

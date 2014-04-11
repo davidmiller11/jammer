@@ -1,8 +1,10 @@
 <!-- show.html.erb - jams -->
 <h2>Jam: <%= @jam.name %></h2>
+<% back_page = current_user == @jam.creator ? 'My Jams' : 'My Invitations' %>
 
+<div class='text-block'><%= link_to "<-- Back to #{back_page}", jams_path %></div>
 <div class="text-block-single">
-  <p class="item">
+  <p>
     <span class="labels">Location:</span> <%= @jam.location %><br />
     <span class="labels">Description:</span> <%= @jam.description %><br />
     <span class="labels">Invited by:</span> <%= @jam.creator.full_name %><br />
@@ -58,5 +60,5 @@
     <div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
     <div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Delete this Jam?'} %></div>
   <% end %>
-  <div><%= link_to 'Back', jams_path %></div>
+
 </p>

@@ -5,11 +5,9 @@
 
 <% @jams.each do |j| %>
   <div class='text-block'>
-    <p class='item'>
       <span class="labels">Title:</span> <%= link_to j.name, j %><br />
       <span class="labels">Location:</span> <%= j.location %><br />
       <span class="labels">Description:</span> <%= j.description %><br />
-    </p>
   </div>
 <% end %>
 

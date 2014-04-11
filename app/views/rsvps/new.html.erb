@@ -2,14 +2,16 @@
 <h2>Inviting friends to Jam</h2>
 
 <h4>Select all friends to invite:</h4>
+<div class="main-wrapper">
 <%= form_tag '/rsvps' do %>
 
   <% @user.friends.each do |friend| %>
     
     <% if !@invitee_ids.include?(friend.id) %>
-
+<div class="item">
       <%= check_box_tag("invitees[#{friend.id}") %>
-      <%= label_tag("invitees[#{friend.id}", friend.full_name) %><br />
+      <div class="checkbox-label"><%= label_tag("invitees[#{friend.id}", friend.full_name) %></div><br />
+ </div>   
     <% end %>
 
   <% end %>
@@ -17,3 +19,4 @@
   <%= submit_tag %>
 
 <% end %>
+</div>

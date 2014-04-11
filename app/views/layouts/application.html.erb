@@ -12,7 +12,7 @@
       <div class="top_header"></div>
       <% if current_user %>
         <div>
-          Hi, <%= current_user.first_name  %> | 
+          Hi, <%= link_to current_user.first_name, current_user  %> | 
           <span><%= link_to 'Logout', logout_path %></span>
           <div class='logo'><a href="<%= user_url(current_user) %>"><%= image_tag 'logo.png' %></a></div>
         </div>
