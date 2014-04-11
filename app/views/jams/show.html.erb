@@ -1,23 +1,14 @@
 <!-- show.html.erb - jams -->
 <h2>Jam: <%= @jam.name %></h2>
 
-<p>
-  <div>
-    <strong>Location:</strong> <%= @jam.location %>
-  </div>
-  <div>
-    <strong>Description:</strong> <%= @jam.description %>
-  </div>
-  <div>
-    <strong>Finalized?</strong> <%= @jam.finalized %>
-  </div>
-  <div>
-    <strong>Created by:</strong> <%= @jam.creator.full_name %>
-  </div>
-  <div>
-    <strong>Created at:</strong> <%= @jam.created_at_formatted %>
-  </div>
-</p>
+<div class="text-block-single">
+  <p class="item">
+    <span class="labels">Location:</span> <%= @jam.location %><br />
+    <span class="labels">Description:</span> <%= @jam.description %><br />
+    <span class="labels">Invited by:</span> <%= @jam.creator.full_name %><br />
+    <span class="labels">Created at:</span> <%= @jam.created_at_formatted %>
+  </p>
+</div> <!-- END TEXT-BLOCK -->
 
 <% if !@jam.jam_times.empty? %>
 

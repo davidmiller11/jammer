@@ -14,7 +14,7 @@
         <div>
           Hi, <%= current_user.first_name  %> | 
           <span><%= link_to 'Logout', logout_path %></span>
-          <div class='logo'><%= image_tag 'logo.png' %></div>
+          <div class='logo'><a href="<%= user_url(current_user) %>"><%= image_tag 'logo.png' %></a></div>
         </div>
         <div class="nav">
           <% if current_user.admin == true %>

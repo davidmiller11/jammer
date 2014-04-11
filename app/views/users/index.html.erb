@@ -1,6 +1,6 @@
 <!-- index.html.erb - users -->
 <h2>All users</h2>
-<br />
+<h4><%= link_to 'Add Jammers to Friends List', new_user_friendship_path(current_user) %></h4>
 <table>
   <thead>
     <tr>
@@ -31,5 +31,3 @@
 
   </tbody>
 </table>
-<br />
-<div><%= link_to 'Add Jammers to Friends List', new_user_friendship_path(current_user) %></div>

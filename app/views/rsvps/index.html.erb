@@ -1,27 +1,13 @@
 <!-- index.html.erb - rsvps -->
 <h2>Look, Ma!  People wanna Jam with me!</h2>
 
-<div class="text">
-<% @jams_invited_to.each do |jam| %>
-
-<p>
-  <div>
-    <strong>Name:</strong> <%= link_to jam.name, jam %>
+<% @jams_invited_to.each do |j| %>
+  <div class="text-block">
+    <p class="item">
+      <span class="labels">Title:</span> <%= link_to j.name, j %><br />
+      <span class="labels">Location:</span> <%= j.location %><br />
+      <span class="labels">Description:</span> <%= j.description %><br />
+      <span class="labels">Invited by:</span> <%= User.find(j.user_id).full_name %>
+    </p>
   </div>
-  <div>
-    <strong>Location:</strong> <%= jam.location %>
-  </div>
-  <div>
-    <strong>Description:</strong> <%= jam.description %>
-  </div>
-  <div>
-    <strong>Finalized?</strong> <%= jam.finalized %>
-  </div>
-  <div>
-    <strong>Invited by:</strong> <%= User.find(jam.user_id).full_name %>
-  </div>
-  
-</p>
-
 <% end %>
-</div>

@@ -84,15 +84,43 @@ tr:last-child td {
 
 .logo {
   text-align: center;
+  height: 100px;
 }
 
 .text-block {
-  margin-bottom: 20px;
+  margin: 0 100px 20px;
+  /*border: 2px solid red;*/
 }
+
+.login {
+  /*border: 5px solid green;*/
+  width: 220px;
+  margin: 0 auto;
+}
+
+.text-block-single {
+  margin: 0 100px 20px;
+  /*border: 2px solid red;*/
+  text-align: center;
+}
+
+.item {
+  /*border: 1px solid green;*/
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+/*.single-item {
+  border: 1px solid blue;
+  display: inline-block;
+}*/
 
 .labels {
   font-weight: bold;
 }
 
+.container {
+  /*border: 2px solid blue;*/
+}
 
 

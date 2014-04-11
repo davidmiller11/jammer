@@ -1,4 +1,6 @@
 <!-- _form.html.erb - users -->
+<div class="login">
+
 <%= form_for @user do |f| %>
 
   <% if @user.errors.any? %>
@@ -9,7 +11,7 @@
       <% end %>
     </ul>
   <% end %>
-
+  
   <p>
     First Name<br />
     <%= f.text_field :first_name %>
@@ -39,3 +41,5 @@
   </p>
 
 <% end %>
+
+</div>
