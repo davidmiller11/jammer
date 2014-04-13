@@ -7,13 +7,12 @@ class RsvpsController < ApplicationController
 
   def new
     # inviting 1 or more friends to jam
-    @jam = Jam.find(session[:jam_id])
-    @creator = @jam.creator
-    @invitee_ids = @jam.invitee_ids
-    @uninvited_friends = @creator.friends.reject { |friend| @invitee_ids.include?(friend.id) }
-    end
+    jam = Jam.find(session[:jam_id])
+    creator = jam.creator
+    invitee_ids = jam.invitee_ids
+    @uninvited_friends = creator.friends.reject { |friend| invitee_ids.include?(friend.id) }
 
-    if (current_user.id == @creator.id || current_user.admin) && !@uninvited_friends.empty?
+    if (current_user.id == creator.id || current_user.admin) && !@uninvited_friends.empty?
       @rsvp = Rsvp.new
     else
       flash[:notice] = "You have already invited all of your friends.  In order to invite another person, you must first add that user to your Friend List."
@@ -25,14 +24,13 @@ class RsvpsController < ApplicationController
   def create
     @jam = Jam.find(session[:jam_id])
 
-    @invitee_user_ids = params[:invitees].keys.map { |key| key.to_i }
+    new_invitee_ids = params[:invitees].keys.map { |key| key.to_i }
 
-    # @invitee_user_ids has array of user_id's
-    Rsvp.create_many(@jam.jam_times, @invitee_user_ids)
+    Rsvp.create_many(@jam.jam_times, new_invitee_ids)
 
     # Send an invite_email to each invited user
-    @invitee_user_ids.each do |invitee_user_id|
-      UserMailer.invite_email(@jam, invitee_user_id).deliver
+    new_invitee_ids.each do |new_invitee_id|
+      UserMailer.invite_email(@jam, new_invitee_id).deliver
     end
     
     redirect_to @jam
@@ -89,16 +87,14 @@ class RsvpsController < ApplicationController
 
   def destroy
     @rsvp = Rsvp.find(params[:id])
-    @user = User.find(@rsvp.user_id)
-    @jam_time = JamTime.find(@rsvp.jam_time_id)
-    @jam = Jam.find(@jam_time.jam_id)
+    @user = @rsvp.user
+    @jam_time = @rsvp.jam_time
+    @jam = @jam_time.jam
 
     if !current_user.admin && (current_user.id != @rsvp.user_id) && current_user.id != @jam.user_id
       redirect_to :back
     else
-
-      # find me all the rsvps for given user
-      @user_rsvps = Rsvp.where(user_id: @user.id)
+      @user_rsvps = @user.rsvps
 
       # find me all the jam_times belonging to the jam we wish to edit rsvps for
       @jam_times = JamTime.where(jam_id: @jam.id)
@@ -108,29 +104,17 @@ class RsvpsController < ApplicationController
 
       # find rsvp_ids for the rsvps where user and jam_time match
       @rsvp_ids_to_delete = []
-
       @user_rsvps.each do |user_rsvp|
         if @jam_time_ids.include?(user_rsvp.jam_time_id.to_i)
           @rsvp_ids_to_delete << user_rsvp.id
         end 
       end
-
       @jam = Jam.find(JamTime.find(@rsvp.jam_time_id).jam_id)
-
-
       # need to destroy more than one RSVP
       @rsvp_ids_to_delete.each do |rsvp_id|
-
         Rsvp.find(rsvp_id).destroy
-
       end
-
       redirect_to @jam
     end
   end
-
-  # private
-  #   def rsvp_params
-  #   end
-
 end

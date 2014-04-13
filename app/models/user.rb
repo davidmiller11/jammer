@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships
 
   has_many :jams, dependent: :destroy
+  has_many :rsvps
 
   def full_name
     f = self.first_name
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
     elsif l
       return l
     else
-      return ''
+      return ""
     end
   end
 
