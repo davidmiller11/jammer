@@ -127,4 +127,8 @@ tr:last-child td {
   clear: right;
 }
 
+.wrapper {
+  margin-bottom: 200px;
+}
+
 

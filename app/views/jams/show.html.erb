@@ -52,7 +52,8 @@
 
 <% end %>
 
-<p>
+<div class="text-block-single">
+    <br />
   <% session[:jam_id] = @jam.id %>
   <% if current_user.id == @jam.user_id || current_user.admin %>
     <div><%= link_to 'Add another time', new_jam_time_path %></div>
@@ -61,4 +62,4 @@
     <div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Delete this Jam?'} %></div>
   <% end %>
 
-</p>
+</div>
