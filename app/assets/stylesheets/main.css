@@ -2,13 +2,11 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
 }
 
-.top_header {
+.top-header {
   height: 10px;
-  background-color: rgb(22,173,88);
-  margin-top: -10px;
-  margin-left: -10px;
-  margin-right: -10px;
-  margin-bottom: 5px;
+  /*background-color: rgb(22,173,88);*/
+  padding-top: 10px;
+
 }
 
 .notice {
@@ -30,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav {
   text-align: center;
   margin-bottom: 50px;
+  /*border-top: 5px solid rgb(22, 173, 88);*/
   /*background-color: green;*/
 }
 

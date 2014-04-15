@@ -19,7 +19,7 @@
           <%= f.friend.user_name %>
         </td>
         <td>
-          <%= link_to '(remove)', friendship_path(f), method: :delete, data: { confirm: "Are you sure you want to remove #{f.friend.first_name} as a friend?"} %>
+          <%= link_to 'remove friend', friendship_path(f), method: :delete, data: { confirm: "Are you sure you want to remove #{f.friend.first_name} as a friend?"} %>
         </td>
       </tr>
     <% end %>

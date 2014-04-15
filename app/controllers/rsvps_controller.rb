@@ -16,13 +16,14 @@ class RsvpsController < ApplicationController
       @rsvp = Rsvp.new
     else
       flash[:notice] = "You have already invited all of your friends.  In order to invite another person, you must first add that user to your Friend List."
-      redirect_to @jam
+      redirect_to jam
     end
     
   end
 
   def create
     @jam = Jam.find(session[:jam_id])
+    email_count = 0;
 
     new_invitee_ids = params[:invitees].keys.map { |key| key.to_i }
 
@@ -31,8 +32,9 @@ class RsvpsController < ApplicationController
     # Send an invite_email to each invited user
     new_invitee_ids.each do |new_invitee_id|
       UserMailer.invite_email(@jam, new_invitee_id).deliver
+      email_count += 1;
     end
-    
+    flash[:notice] = "Invitations have been sent to #{email_count} friend(s)!" if email_count > 0
     redirect_to @jam
   end
 

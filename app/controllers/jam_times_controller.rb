@@ -9,7 +9,7 @@ class JamTimesController < ApplicationController
     if current_user == @jam.creator && @jam.rsvps.empty?
       @jam_time = JamTime.new
     else
-      flash[:notice] = "You cannot add another time after you have already invited users to jam.  To add more times, you have to create a new jam."
+      flash[:notice] = "Cannot propose another time after invites have been sent.  To add more times, please create a new jam."
       redirect_to @jam
     end
   end
