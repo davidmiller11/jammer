@@ -9,9 +9,9 @@
     <% @uninvited_friends.each do |friend| %>
 
       <div class="item">
-        <%= check_box_tag("invitees[#{friend.id}") %>
+        <%= check_box_tag("invitees[#{friend.id}]") %>
 
-        <div class="checkbox-label"><%= label_tag("invitees[#{friend.id}", friend.full_name) %></div><br />
+        <div class="checkbox-label"><%= label_tag("invitees[#{friend.id}]", friend.full_name) %></div><br />
 
       </div> <!-- END ITEM -->   
 

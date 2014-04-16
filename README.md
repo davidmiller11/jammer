@@ -1,6 +1,6 @@
 #Jammer README
 
-* add background on project, what it does, how i built it.
+* Add background on project, what it does, how I built it.
 
 ##Links
 

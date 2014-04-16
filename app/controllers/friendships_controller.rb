@@ -27,8 +27,17 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = Friendship.create(friendship_params)
-    @friendship.update(:user_id => params[:user_id])
+    base_user_id = params[:user_id]
+    new_friends = params[:new_friends]
+
+    if new_friends
+      new_friends.each_key do |new_friend_id|
+        Friendship.create(user_id: base_user_id, friend_id: new_friend_id)
+      end
+    end
+
+    flash[:notice] = "Successfully added #{new_friends.count} user(s) to your Friends List!"
+
     redirect_to user_friendships_path(current_user)
   end
 
@@ -42,9 +51,9 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  private
-    def friendship_params
-      params.require(:friendship).permit(:friend_id)
-    end
+  # private
+  #   def friendship_params
+  #     params.require(:friendship).permit(:friend_id)
+  #   end
 
 end

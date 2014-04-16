@@ -16,7 +16,7 @@ body {
 .flash-container {
   width: 900px;
   /*background-color: yellow;*/
-  margin: 0 auto;
+  margin: 0 auto 10px;
   text-align: center;
 }
 

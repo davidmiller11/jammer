@@ -1,6 +1,8 @@
 # rsvps_controller.rb
 class RsvpsController < ApplicationController
 
+  before_action :require_authentication
+
   def index
     @jams_invited_to = current_user.jams_invited_to
   end
