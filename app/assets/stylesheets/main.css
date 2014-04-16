@@ -1,16 +1,19 @@
-body {
+/*body {
   font-family: 'Helvetica Neue', sans-serif;
-}
+}*/
 
 .top-header {
   height: 10px;
   /*background-color: rgb(22,173,88);*/
   padding-top: 10px;
-
 }
 
 .notice {
-  color: red;
+  color: #FF0000;
+}
+
+.success {
+  color: #FF680D;
 }
 
 .flash-container {
@@ -129,5 +132,12 @@ tr:last-child td {
 .wrapper {
   margin-bottom: 200px;
 }
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  body {
+    background-color: #fffdc5;
+  }
+}
+
 
 

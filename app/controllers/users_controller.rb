@@ -16,7 +16,9 @@ class UsersController < ApplicationController
     if @user.save
       # success
       UserMailer.welcome_email(@user).deliver
-      redirect_to @user
+      flash[:success] = "Account successfully created!"
+      session[:current_user_id] = @user.id
+      redirect_to jams_path
     else
       # error handling
       render 'new'

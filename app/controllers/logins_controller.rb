@@ -9,7 +9,7 @@ class LoginsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:current_user_id] = @user.id
-      redirect_to @user
+      redirect_to jams_path
     else
       render 'new'
     end
@@ -17,7 +17,7 @@ class LoginsController < ApplicationController
 
   def destroy
     session[:current_user_id] = nil
-    flash[:notice] = "You have successfully logged out."
+    flash[:success] = "You have successfully logged out."
     redirect_to root_path
   end
 

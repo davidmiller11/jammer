@@ -36,7 +36,7 @@ class FriendshipsController < ApplicationController
       end
     end
 
-    flash[:notice] = "Successfully added #{new_friends.count} user(s) to your Friends List!"
+    flash[:success] = "Successfully added #{new_friends.count} user(s) to your Friends List!"
 
     redirect_to user_friendships_path(current_user)
   end

@@ -36,7 +36,7 @@ class RsvpsController < ApplicationController
       UserMailer.invite_email(@jam, new_invitee_id).deliver
       email_count += 1;
     end
-    flash[:notice] = "Invitations have been sent to #{email_count} friend(s)!" if email_count > 0
+    flash[:success] = "Invitations have been sent to #{email_count} friend(s)!" if email_count > 0
     redirect_to @jam
   end
 
