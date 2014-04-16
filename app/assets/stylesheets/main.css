@@ -133,7 +133,7 @@ tr:last-child td {
   margin-bottom: 200px;
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width: 360px) and (max-width: 479px) {
   body {
     background-color: #fffdc5;
   }
