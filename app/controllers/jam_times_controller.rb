@@ -16,6 +16,8 @@ class JamTimesController < ApplicationController
 
   def create
     @jam = Jam.find(session[:jam_id])
+
+    # Only create jam_time if there are no rsvps, since users will already have responded.
     if @jam.rsvps.empty?
       @jam_time = @jam.jam_times.new(jam_time_params)
       if @jam_time.save
@@ -25,6 +27,7 @@ class JamTimesController < ApplicationController
         render :new
       end
     else
+      # If users have already been invited, redirect back to view jam.
       redirect_to @jam
     end
   end

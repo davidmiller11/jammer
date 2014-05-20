@@ -51,9 +51,4 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  # private
-  #   def friendship_params
-  #     params.require(:friendship).permit(:friend_id)
-  #   end
-
 end

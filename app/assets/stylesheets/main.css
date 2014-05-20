@@ -1,17 +1,15 @@
-/*body {
-  font-family: 'Helvetica Neue', sans-serif;
-}*/
-
+/* Top-Header */
 .top-header {
   height: 10px;
-  /*background-color: rgb(22,173,88);*/
   padding-top: 10px;
 }
 
+/* Notice */
 .notice {
   color: #FF0000;
 }
 
+/* Success */
 .success {
   color: #FF680D;
 }
@@ -57,36 +55,43 @@ table {
   margin: 0 auto;
 }
 
-th {
-  background-color: rgb(22, 173, 88);
-  color: rgb(255, 255, 255);
-  letter-spacing: 1px;
-}
+  th {
+    background-color: rgb(22, 173, 88);
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+  }
 
-th, td {
-  padding-left: 5px;
-  padding-right: 5px;
-  border: 1px solid black;
-  /*border-bottom: 1px solid black;*/
-  /*border-right: 1px solid black*/
-}
+  th, td {
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    /*border-bottom: 1px solid black;*/
+    /*border-right: 1px solid black*/
+  }
 
-td {
-  text-align: center;
-}
+  td {
+    text-align: center;
+  }
 
-tr td:first-child {
-  text-align: left;
-}
+  tr td:first-child {
+    text-align: left;
+  }
 
-/*to remove the bottom border of the cells within the last row of the table*/
-tr:last-child td {
-  /*border-bottom: 0;*/
-}
-
+/* Logo */
 .logo {
+  display: inline-block;
+}
+
+  .logo img {
+    height: 70px;
+  }
+
+.greenBar {
+  /*background-color: rgba(22, 173, 88, 0.2);*/
   text-align: center;
-  height: 100px;
+  padding: 20px;
+  border-top: 10px solid rgb(22,173,88);
+  border-bottom: 1px solid silver;
 }
 
 .text-block {
@@ -131,12 +136,6 @@ tr:last-child td {
 
 .wrapper {
   margin-bottom: 200px;
-}
-
-@media only screen and (min-width: 300px) and (max-width: 479px) {
-  body {
-    background-color: #fffdc5;
-  }
 }
 
 

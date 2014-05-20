@@ -3,16 +3,12 @@
 <div class="main-wrapper">
 <%= form_tag login_path do %>
   
+  <p>Email <%= email_field_tag :email %></p>
   <p>
-    Email<br />
-    <%= email_field_tag :email %>
+    Password <%= password_field_tag :password %>
   </p>
   <p>
-    Password<br />
-    <%= password_field_tag :password %>
-  </p>
-  <p>
-    <%= submit_tag :login %>
+    <%= submit_tag 'Log In' %>
   </p>
 <% end %>
 </div>

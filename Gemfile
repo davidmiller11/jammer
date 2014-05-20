@@ -41,7 +41,6 @@ group :development do
   gem 'meta_request'
   gem 'pry-rails'
   gem 'rails-erd'
-
 end
 
 group :development, :test do
@@ -50,6 +49,10 @@ group :development, :test do
 end
 
 gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
+
+group :test do
+  gem 'shoulda-matchers'
+end
 
 group :production do
   gem 'rails_12factor'

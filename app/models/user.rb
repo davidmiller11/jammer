@@ -12,14 +12,14 @@ class User < ActiveRecord::Base
   has_many :rsvps
 
   def full_name
-    f = self.first_name
-    l = self.last_name
-    if f && l
-      return f + " " + l
-    elsif f
-      return f
-    elsif l
-      return l
+    f_name = self.first_name
+    l_name = self.last_name
+    if f_name && l_name
+      return f_name + " " + l_name
+    elsif f_name
+      return f_name
+    elsif l_name
+      return l_name
     else
       return ""
     end
