@@ -1,15 +1,15 @@
 <div class="main-wrapper">
 <%= form_for @jam do |f| %>
   <p>
-    Name<br />
-    <%= f.text_field :name %>
+    Jam title<br />
+    <%= f.text_field :name, :placeholder => "Untitled jam" %>
   </p>
   <p>
-    Location<br />
-    <%= f.text_field :location %>
+    Where<br />
+    <%= f.text_field :location, :placeholder => "Enter a location" %>
   </p>
   <p>
-    Description (optional)<br />
+    Description<br />
     <%= f.text_field :description %>
   </p>
   <p>

@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_not_logged_in
+    if current_user != nil
+      redirect_to root_path
+    end
+  end
+
 end

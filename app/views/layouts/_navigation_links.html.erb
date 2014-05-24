@@ -1,0 +1,38 @@
+<%# add navigation links to this file %>
+
+<% if !current_user %>
+
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li class="active"></li>
+    <li><%= link_to 'Login', login_path %></li>
+    <li><%= link_to 'Sign up', new_user_path %></li>
+  </ul>
+
+  <!-- Left Nav Section -->
+  <ul class="left">
+    <li><%= link_to 'Home', root_path %></li>
+  </ul>
+
+<% else %>
+
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li class="active"></li>
+    <li class="active has-dropdown">
+      <%= link_to current_user.first_name, current_user  %>
+      <ul class="dropdown">
+        <li><%= link_to 'Logout', logout_path %></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- Left Nav Section -->
+  <ul class="left">
+    <li><a href="<%= root_path %>"><span class="fa fa-home fa-lg"></span> Home</a></li>
+    <li><a href="<%= new_jam_path %>"><span class="fa fa-plus fa-lg"></span> Create New Jam</a></li>
+    <li><a href="<%= jams_path %>"><span class="fa fa-calendar fa-lg"></span> My Jams (<%= current_user.jams.count %>)</a></li>
+    <li><a href="<%= users_path %>"><span class="fa fa-users fa-lg"></span> Jammers (<%= User.all.count %>)</a></li>
+  </ul>
+
+<% end %>
