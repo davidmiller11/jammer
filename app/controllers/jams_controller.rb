@@ -4,7 +4,7 @@ class JamsController < ApplicationController
   before_action :require_authentication
 
   def index
-    @jams = current_user.jams
+    @jams = current_user.jams_invited_to
   end
 
   def all
@@ -17,7 +17,7 @@ class JamsController < ApplicationController
   end
 
   def create
-    @jam = current_user.jams.create(jam_params)
+    @jam = Jam.create(jam_params)
     @jam.user_id = current_user.id
     @jam.save
     session[:jam_id] = @jam.id

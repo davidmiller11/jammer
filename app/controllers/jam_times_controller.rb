@@ -6,7 +6,7 @@ class JamTimesController < ApplicationController
 
   def new
     @jam = Jam.find(session[:jam_id])
-    if current_user == @jam.creator && @jam.rsvps.empty?
+    if current_user == @jam.creator
       @jam_time = JamTime.new
     else
       flash[:notice] = "Cannot propose another time after invites have been sent.  To add more times, please create a new jam."
@@ -17,19 +17,15 @@ class JamTimesController < ApplicationController
   def create
     @jam = Jam.find(session[:jam_id])
 
-    # Only create jam_time if there are no rsvps, since users will already have responded.
-    if @jam.rsvps.empty?
-      @jam_time = @jam.jam_times.new(jam_time_params)
-      if @jam_time.save
-        session[:jam_time_id] = @jam_time.id
-        redirect_to @jam
-      else
-        render :new
-      end
-    else
-      # If users have already been invited, redirect back to view jam.
+    @jam_time = @jam.jam_times.new(jam_time_params)
+    if @jam_time.save
+      Rsvp.create(user_id: current_user.id, jam_time_id: @jam_time.id, answer: 'yes')
+      session[:jam_time_id] = @jam_time.id
       redirect_to @jam
+    else
+      render :new
     end
+
   end
 
   def destroy

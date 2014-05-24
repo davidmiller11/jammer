@@ -42,4 +42,5 @@ class User < ActiveRecord::Base
   def jams_invited_to
     return Rsvp.where(user_id: self.id).map {|rsvp| rsvp.jam_time.jam }.uniq
   end
+
 end

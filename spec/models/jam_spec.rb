@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Jam do
   
-  it { should belong_to(:user) }
+  # it { should belong_to(:user) }
   it { should have_many(:jam_times).dependent(:destroy) }
   it { should have_many(:rsvps).through(:jam_times) }
 

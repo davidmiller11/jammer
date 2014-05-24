@@ -10,7 +10,7 @@ describe User do
   end  
   it { should have_many(:friendships).dependent(:destroy) }
   it { should have_many(:friends).through(:friendships) }
-  it { should have_many(:jams).dependent(:destroy) }
+  # it { should have_many(:jams).dependent(:destroy) }
   it { should have_many(:rsvps) }
 
   it 'is invalid without an email' do
@@ -34,6 +34,24 @@ describe User do
         jam_time1 = JamTime.create(jam_id: jam1.id, start_date: "2014-05-05", start_time: "3:00pm")
         rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)
         expect(user1.jams_invited_to).to include(jam1)
+      end
+    end
+  end
+
+  context 'After user has been invited to at least 1 jam and created his/her own jam' do
+    describe '#jams' do
+      it 'returns an array of jams created or invited to' do
+        user1 = User.create(first_name: 'John1', last_name: 'Doe1', email: 'user1@test.com', password: 1, password_confirmation: 1)
+        user2 = User.create(first_name: 'John2', last_name: 'Doe2', email: 'user2@test.com', password: 2, password_confirmation: 2)
+        jam1 = Jam.create(user_id: user1.id)
+        jam2 = Jam.create(user_id: user2.id)
+        jam_time1 = JamTime.create(jam_id: jam1.id, start_date: "2014-05-05", start_time: "3:00pm")
+        jam_time2 = JamTime.create(jam_id: jam2.id, start_date: "2014-05-05", start_time: "3:00pm")
+        rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)
+        rsvp2 = Rsvp.create(jam_time_id: jam_time2.id, user_id: user2.id)
+        rsvp3 = Rsvp.create(jam_time_id: jam_time2.id, user_id: user1.id)
+        expect(user1.jams_invited_to).to include(jam1)
+        expect(user1.jams_invited_to).to include(jam2)
       end
     end
   end

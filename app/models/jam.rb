@@ -21,7 +21,8 @@ class Jam < ActiveRecord::Base
   end
 
   def creator
-    return self.user
+    # return self.user
+    return User.find(self.user_id)
   end
 
   
