@@ -1,7 +1,7 @@
 # jam.rb
 class Jam < ActiveRecord::Base
   # has_many just adds helper methods
-  belongs_to :user
+  # belongs_to :user
   has_many :jam_times, dependent: :destroy
   has_many :rsvps, through: :jam_times
 

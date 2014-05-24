@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships
 
-  has_many :jams, dependent: :destroy
-  has_many :rsvps
+  has_many :rsvps, dependent: :destroy
+
+  # has_many :jams, dependent: :destroy
 
   def full_name
     f_name = self.first_name
