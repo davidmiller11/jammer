@@ -26,6 +26,15 @@ describe User do
     end
   end
 
+  describe '#other_users' do
+    it 'returns array of all other users' do
+      user1 = User.create(first_name: 'John1', last_name: 'Doe1', email: 'user1@test.com', password: 1, password_confirmation: 1)
+      user2 = User.create(first_name: 'John2', last_name: 'Doe2', email: 'user2@test.com', password: 2, password_confirmation: 2)
+      expect(user1.other_users).to include(user2)
+      expect(user1.other_users).to_not include(user1)
+    end
+  end
+
   context 'After user has been invited to at least 1 jam' do
     describe '#jams_invited_to' do
       it 'returns an array of jams the user has been invited to' do

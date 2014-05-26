@@ -19,8 +19,8 @@ class FriendshipsController < ApplicationController
 
   def new
     @friendship = Friendship.new
-    @other_users = current_user.other_users
-    if @other_users.empty?
+    @not_friends = current_user.not_friends
+    if @not_friends.empty?
       flash[:notice] = "Cannot add more friends since you are already friends with all users!"
       redirect_to :back
     end

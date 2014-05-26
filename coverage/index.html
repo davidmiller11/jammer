@@ -14,26 +14,26 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-05-24T15:08:08-04:00">2014-05-24T15:08:08-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-05-26T09:40:12-04:00">2014-05-26T09:40:12-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">88.68%</span></span>
+    (<span class="covered_percent"><span class="yellow">89.7%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.92
+         0.93
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>29</b> files in total.
-    <b>212</b> relevant lines. 
-    <span class="green"><b>188</b> lines covered</span> and
+    <b>233</b> relevant lines. 
+    <span class="green"><b>209</b> lines covered</span> and
     <span class="red"><b>24</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -92,10 +92,10 @@
       
       <tr>
         <td class="strong"><a href="#351e6a4c193bd7d2e8b391a08aa272402a98d6a5" class="src_link" title="app/models/jam.rb">app/models/jam.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>29</td>
-        <td>12</td>
-        <td>8</td>
+        <td class="red strong">71.43 %</td>
+        <td>33</td>
+        <td>14</td>
+        <td>10</td>
         <td>4</td>
         <td>0.7</td>
       </tr>
@@ -122,12 +122,12 @@
       
       <tr>
         <td class="strong"><a href="#041b3ea01042b22d9697916aff8d423b801c5242" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>46</td>
-        <td>24</td>
-        <td>16</td>
+        <td class="red strong">69.23 %</td>
+        <td>50</td>
+        <td>26</td>
+        <td>18</td>
         <td>8</td>
-        <td>1.0</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
@@ -303,11 +303,11 @@
       <tr>
         <td class="strong"><a href="#87cd6c93812ebceca59fd39d85845098b4536bbe" class="src_link" title="spec/models/jam_spec.rb">spec/models/jam_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>12</td>
-        <td>12</td>
+        <td>38</td>
+        <td>23</td>
+        <td>23</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
@@ -333,9 +333,9 @@
       <tr>
         <td class="strong"><a href="#c991be24d21175eb3ae8c807e5578e1d5a5870cc" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>58</td>
-        <td>39</td>
-        <td>39</td>
+        <td>67</td>
+        <td>45</td>
+        <td>45</td>
         <td>0</td>
         <td>1.1</td>
       </tr>
@@ -611,10 +611,10 @@
         <div class="source_table" id="351e6a4c193bd7d2e8b391a08aa272402a98d6a5">
   <div class="header">
     <h3>app/models/jam.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">71.43 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
@@ -757,40 +757,64 @@
         <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
-          <code class="ruby">  def creator</code>
+          <code class="ruby">  def user_count </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby">    # return self.user</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">    return User.find(self.user_id)</code>
+          <code class="ruby">    return self.jam_times.first.rsvps.count</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def creator</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    # return self.user</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    return User.find(self.user_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">end</code>
@@ -1049,10 +1073,10 @@
         <div class="source_table" id="041b3ea01042b22d9697916aff8d423b801c5242">
   <div class="header">
     <h3>app/models/user.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">69.23 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
+      <b>26</b> relevant lines. 
+      <span class="green"><b>18</b> lines covered</span> and
       <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
@@ -1261,7 +1285,7 @@
         <li class="missed" data-hits="0" data-linenumber="34">
           
           
-          <code class="ruby">    return self.admin ? &quot;Admin: Viewing all Jams&quot; : &quot;I made these Jams&quot;</code>
+          <code class="ruby">    return self.admin ? &quot;Admin: Viewing all Jams&quot; : &quot;My Jams&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
@@ -1279,7 +1303,7 @@
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">  def other_users</code>
+          <code class="ruby">  def not_friends</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="38">
@@ -1300,37 +1324,61 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">  # returns an array of all jams a user has been invited to</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">  def jams_invited_to</code>
+          <code class="ruby">  def other_users</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="43">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="6" data-linenumber="42">
+          <span class="hits">6</span>
           
-          <code class="ruby">    return Rsvp.where(user_id: self.id).map {|rsvp| rsvp.jam_time.jam }.uniq</code>
+          <code class="ruby">    return User.all.reject { |user| user == self || user.admin }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">  # returns an array of all jams a user has been invited to</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def jams_invited_to</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="47">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    return Rsvp.where(user_id: self.id).map {|rsvp| rsvp.jam_time.jam }.uniq</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">end</code>
@@ -3505,7 +3553,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  root &#39;welcome#index&#39;</code>
+          <code class="ruby">  root &#39;logins#new&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
@@ -4021,8 +4069,8 @@
     <h3>spec/models/jam_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>12</b> lines covered</span> and
+      <b>23</b> relevant lines. 
+      <span class="green"><b>23</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4159,16 +4207,100 @@
         <li class="never" data-hits="" data-linenumber="22">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &#39;#user_count&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;should return the number of users invited to the jam, including the creator&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        user1 = User.create(first_name: &#39;Tommy&#39;, last_name: &#39;Bahama&#39;, email: &#39;user1@test.com&#39;, password: 1, password_confirmation: 1)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        user2 = User.create(first_name: &#39;Tommy&#39;, last_name: &#39;Bahama&#39;, email: &#39;user2@test.com&#39;, password: 2, password_confirmation: 2)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        user3 = User.create(first_name: &#39;Tommy&#39;, last_name: &#39;Bahama&#39;, email: &#39;user3@test.com&#39;, password: 3, password_confirmation: 3)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        jam1 = Jam.create</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        jam_time1 = JamTime.create(jam_id: jam1.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        rsvp2 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user2.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        rsvp3 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user3.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        expect(jam1.user_count).to eq(3)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">end</code>
@@ -4309,8 +4441,8 @@
     <h3>spec/models/user_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>39</b> relevant lines. 
-      <span class="green"><b>39</b> lines covered</span> and
+      <b>45</b> relevant lines. 
+      <span class="green"><b>45</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4489,178 +4621,232 @@
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">  context &#39;After user has been invited to at least 1 jam&#39; do</code>
+          <code class="ruby">  describe &#39;#other_users&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &#39;#jams_invited_to&#39; do</code>
+          <code class="ruby">    it &#39;returns array of all other users&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;returns an array of jams the user has been invited to&#39; do</code>
+          <code class="ruby">      user1 = User.create(first_name: &#39;John1&#39;, last_name: &#39;Doe1&#39;, email: &#39;user1@test.com&#39;, password: 1, password_confirmation: 1)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">        user1 = User.create(first_name: &#39;Tommy&#39;, last_name: &#39;Bahama&#39;, email: &#39;ghost@ghost.com&#39;, password: 1, password_confirmation: 1)</code>
+          <code class="ruby">      user2 = User.create(first_name: &#39;John2&#39;, last_name: &#39;Doe2&#39;, email: &#39;user2@test.com&#39;, password: 2, password_confirmation: 2)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">        jam1 = Jam.create</code>
+          <code class="ruby">      expect(user1.other_users).to include(user2)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">        jam_time1 = JamTime.create(jam_id: jam1.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
+          <code class="ruby">      expect(user1.other_users).to_not include(user1)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="35">
           
-          <code class="ruby">        rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="36">
           
-          <code class="ruby">        expect(user1.jams_invited_to).to include(jam1)</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  context &#39;After user has been invited to at least 1 jam&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &#39;#jams_invited_to&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;returns an array of jams the user has been invited to&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">  context &#39;After user has been invited to at least 1 jam and created his/her own jam&#39; do</code>
+          <code class="ruby">        user1 = User.create(first_name: &#39;Tommy&#39;, last_name: &#39;Bahama&#39;, email: &#39;ghost@ghost.com&#39;, password: 1, password_confirmation: 1)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &#39;#jams&#39; do</code>
+          <code class="ruby">        jam1 = Jam.create</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;returns an array of jams created or invited to&#39; do</code>
+          <code class="ruby">        jam_time1 = JamTime.create(jam_id: jam1.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
-          <code class="ruby">        user1 = User.create(first_name: &#39;John1&#39;, last_name: &#39;Doe1&#39;, email: &#39;user1@test.com&#39;, password: 1, password_confirmation: 1)</code>
+          <code class="ruby">        rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">        user2 = User.create(first_name: &#39;John2&#39;, last_name: &#39;Doe2&#39;, email: &#39;user2@test.com&#39;, password: 2, password_confirmation: 2)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        jam1 = Jam.create(user_id: user1.id)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        jam2 = Jam.create(user_id: user2.id)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        jam_time1 = JamTime.create(jam_id: jam1.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        jam_time2 = JamTime.create(jam_id: jam2.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        rsvp2 = Rsvp.create(jam_time_id: jam_time2.id, user_id: user2.id)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="52">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        rsvp3 = Rsvp.create(jam_time_id: jam_time2.id, user_id: user1.id)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
-          
           <code class="ruby">        expect(user1.jams_invited_to).to include(jam1)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(user1.jams_invited_to).to include(jam2)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  context &#39;After user has been invited to at least 1 jam and created his/her own jam&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &#39;#jams&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;returns an array of jams created or invited to&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        user1 = User.create(first_name: &#39;John1&#39;, last_name: &#39;Doe1&#39;, email: &#39;user1@test.com&#39;, password: 1, password_confirmation: 1)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        user2 = User.create(first_name: &#39;John2&#39;, last_name: &#39;Doe2&#39;, email: &#39;user2@test.com&#39;, password: 2, password_confirmation: 2)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        jam1 = Jam.create(user_id: user1.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        jam2 = Jam.create(user_id: user2.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        jam_time1 = JamTime.create(jam_id: jam1.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        jam_time2 = JamTime.create(jam_id: jam2.id, start_date: &quot;2014-05-05&quot;, start_time: &quot;3:00pm&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        rsvp1 = Rsvp.create(jam_time_id: jam_time1.id, user_id: user1.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        rsvp2 = Rsvp.create(jam_time_id: jam_time2.id, user_id: user2.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        rsvp3 = Rsvp.create(jam_time_id: jam_time2.id, user_id: user1.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        expect(user1.jams_invited_to).to include(jam1)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        expect(user1.jams_invited_to).to include(jam2)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">end</code>

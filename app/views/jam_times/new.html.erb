@@ -1,4 +1,4 @@
-<!-- new.html.erb - jam_times -->
+<!-- views/jam_times/new.html.erb -->
 <h2>Propose new time for <%= @jam.name %></h2>
 
 <% if @jam_time.errors.any? %>
@@ -11,15 +11,7 @@
 <% end %>
 
 <%= form_for @jam_time do |f| %>
-  <p>
-    Date:<br />
-    <%= f.date_field :start_date %>
-  </p>
-  <p>
-    Time:<br />
-    <%= f.time_field :start_time %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <div>* Date<br /><%= f.date_field :start_date %></div>
+  <div>* Time<br /><%= f.time_field :start_time %></div>
+  <div><%= f.submit 'Propose New Time', :class => 'button' %></div>
 <% end %>

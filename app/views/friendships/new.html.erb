@@ -3,10 +3,10 @@
 <div class="main-wrapper">
   <%= form_tag "/users/#{current_user.id}/friendships" do %>
     <!-- default method for form_tag is POST -->
-    <% @other_users.each do |other_user| %>
+    <% @not_friends.each do |not_friend| %>
       <div class='item'>
-        <%= check_box_tag("new_friends[#{other_user.id}]")%>
-        <div class="checkbox-label"> <%= label_tag("new_friends[#{other_user.id}]", other_user.full_name) %></div>
+        <%= check_box_tag("new_friends[#{not_friend.id}]")%>
+        <div class="checkbox-label"> <%= label_tag("new_friends[#{not_friend.id}]", not_friend.full_name) %></div>
       </div>
     <% end %>
     <%= submit_tag "Add Friends" %>

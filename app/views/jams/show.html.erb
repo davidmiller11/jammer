@@ -1,4 +1,5 @@
-<!-- show.html.erb - jams -->
+<!-- views/jams/show.html.erb -->
+
 <h2>Jam: <%= @jam.name %></h2>
 <% back_page = current_user == @jam.creator ? 'My Jams' : 'My Invitations' %>
 
@@ -57,7 +58,7 @@
   <% session[:jam_id] = @jam.id %>
   <% if current_user.id == @jam.user_id || current_user.admin %>
     <div><%= link_to 'Add another time', new_jam_time_path %></div>
-    <div><%= link_to 'Invite friends', new_rsvp_path %></div>
+    <div><%= link_to 'Invite people to jam', new_rsvp_path %></div>
     <div><%= link_to 'Edit', edit_jam_path(@jam) %></div>
     <div><%= link_to 'Delete', jam_path(@jam), method: :delete, data: { confirm: 'Delete this Jam?'} %></div>
   <% end %>

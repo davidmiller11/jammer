@@ -1,6 +1,6 @@
 JammerApp::Application.routes.draw do
 
-  root 'welcome#index'
+  root 'logins#new'
 
   get '/login' => 'logins#new'
   post '/login' => 'logins#create'

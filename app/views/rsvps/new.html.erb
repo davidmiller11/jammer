@@ -6,12 +6,12 @@
 
   <%= form_tag '/rsvps' do %>
 
-    <% @uninvited_friends.each do |friend| %>
+    <% @other_users.each do |o| %>
 
       <div class="item">
-        <%= check_box_tag("invitees[#{friend.id}]") %>
+        <%= check_box_tag("invitees[#{o.id}]") %>
 
-        <div class="checkbox-label"><%= label_tag("invitees[#{friend.id}]", friend.full_name) %></div><br />
+        <div class="checkbox-label"><%= label_tag("invitees[#{o.id}]", o.full_name) %></div><br />
 
       </div> <!-- END ITEM -->   
 

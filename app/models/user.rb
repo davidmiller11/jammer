@@ -31,11 +31,15 @@ class User < ActiveRecord::Base
   end
 
   def index_view_header
-    return self.admin ? "Admin: Viewing all Jams" : "I made these Jams"
+    return self.admin ? "Admin: Viewing all Jams" : "My Jams"
+  end
+
+  def not_friends
+    return User.all.select { |user| !user.admin && user != self && !self.friends.include?(user) }
   end
 
   def other_users
-    return User.all.select { |user| !user.admin && user != self && !self.friends.include?(user) }
+    return User.all.reject { |user| user == self || user.admin }
   end
 
   # returns an array of all jams a user has been invited to

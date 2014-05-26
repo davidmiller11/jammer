@@ -8,19 +8,14 @@ class RsvpsController < ApplicationController
   end
 
   def new
+    
     # inviting 1 or more friends to jam
     jam = Jam.find(session[:jam_id])
     creator = jam.creator
     invitee_ids = jam.invitee_ids
-    @uninvited_friends = creator.friends.reject { |friend| invitee_ids.include?(friend.id) }
+    @other_users = current_user.other_users
+    @rsvp = Rsvp.new
 
-    if (current_user.id == creator.id || current_user.admin) && !@uninvited_friends.empty?
-      @rsvp = Rsvp.new
-    else
-      flash[:notice] = "You have already invited all of your friends.  In order to invite another person, you must first add that user to your Friend List."
-      redirect_to jam
-    end
-    
   end
 
   def create

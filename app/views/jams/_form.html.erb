@@ -1,19 +1,7 @@
-<div class="main-wrapper">
-<%= form_for @jam do |f| %>
-  <p>
-    Jam title<br />
-    <%= f.text_field :name, :placeholder => "Untitled jam" %>
-  </p>
-  <p>
-    Where<br />
-    <%= f.text_field :location, :placeholder => "Enter a location" %>
-  </p>
-  <p>
-    Description<br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<!-- views/jams/_form.html.erb -->
+<%= simple_form_for @jam do |f| %>
+  <%= f.input :name, placeholder: 'Untitled jam', label: 'Jam Title' %>
+  <%= f.input :location, label: 'Where', placeholder: 'Enter a location' %>
+  <%= f.input :description, label: 'Description' %>
+  <%= f.button :submit, value: 'Create Jam' %>
 <% end %>
-</div>

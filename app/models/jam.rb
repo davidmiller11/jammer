@@ -20,9 +20,17 @@ class Jam < ActiveRecord::Base
     return invitees
   end
 
+  def user_count 
+    return self.jam_times.first.rsvps.count
+  end
+
   def creator
     # return self.user
     return User.find(self.user_id)
+  end
+
+  def final_status
+    return self.finalized ? "Confirmed" : "Pending"
   end
 
   

@@ -1,7 +1,5 @@
-<!-- _form.html.erb - users -->
-<div class="main-wrapper">
-
-<%= form_for @user do |f| %>
+<!-- views/users/_form.html.erb -->
+<div>
 
   <% if @user.errors.any? %>
     Please correct these errors:
@@ -11,35 +9,14 @@
       <% end %>
     </ul>
   <% end %>
-  
-  <p>
-    First Name<br />
-    <%= f.text_field :first_name, :placeholder => 'First name' %>
-  </p> 
-  <p>
-    Last Name<br />
-    <%= f.text_field :last_name, :placeholder => 'Last name' %>
-  </p>
 
-  <p>
-    Email<br />
-    <%= f.text_field :email, :placeholder => 'Email' %>
-  </p>
-
-  <p>
-    Password<br />
-    <%= f.password_field :password, :placeholder => 'Password' %>
-  </p>
-
-  <p>
-    Password Confirmation<br />
-    <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name, label: 'First Name:' %>
+    <%= f.input :last_name, label: 'Last Name:' %>
+    <%= f.input :email, label: 'Email:' %>
+    <%= f.input :password, label: 'Password:' %>
+    <%= f.input :password_confirmation, label: 'Re-enter Password:' %>
+    <%= f.button :submit, value: 'Sign Up' %>
+  <% end %>
 
 </div>

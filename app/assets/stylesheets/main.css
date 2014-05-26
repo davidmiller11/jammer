@@ -1,4 +1,10 @@
 /* Notice */
+
+
+
+
+
+
 .notice {
   color: #FF0000;
 }
@@ -76,7 +82,6 @@ table thead tr th {
   }
 
 .greenBar {
-  /*background-color: rgba(22, 173, 88, 0.2);*/
   text-align: center;
   padding: 20px;
   border-top: 10px solid rgb(22,173,88);
@@ -84,39 +89,31 @@ table thead tr th {
 }
 
 .text-block {
-  margin: 0 200px 20px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid steelblue;
+  padding: 20px;
+  border-bottom: 2px solid #008cba;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.text-block:last-child {
+  border-bottom: none;
 }
 
 .main-wrapper {
-  /*border: 5px solid green;*/
   width: 220px;
   margin: 0 auto;
 }
 
 .text-block-single {
   margin: 0 100px 20px;
-  /*border: 2px solid red;*/
   text-align: center;
 }
 
 .item {
-  /*border: 1px solid green;*/
   margin-bottom: 10px;
 }
-
-/*.single-item {
-  border: 1px solid blue;
-  display: inline-block;
-}*/
-
 .labels {
   font-weight: bold;
-}
-
-.container {
-  /*border: 2px solid blue;*/
 }
 
 .checkbox-label {
@@ -128,5 +125,53 @@ table thead tr th {
   margin-bottom: 200px;
 }
 
+div.top-bar-section .fa {
+    margin-right: 7px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  margin-bottom: 0;
+}
+
+div.button-holder {
+ padding: 0.5rem;
+ background-color: white;
+ border: 1px solid #cccccc;
+}
+
+input.button {
+  margin: 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+main {
+  min-height: 100%;
+}
+
+div.button {
+  border-radius: 5px;
+  margin: 20px 10%;
+  width: 80%;
+}
+
+.simple_form.new_user .button {
+  margin-top: 20px;
+}
+
+.simple_form.new_jam .input,
+.simple_form.new_jam .button {
+  margin-bottom: 20px;
+}
+
+.pending {
+  color: red;
+}
+
+.confirmed {
+  color: green;
+}
 
 
