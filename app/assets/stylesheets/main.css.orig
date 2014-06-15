@@ -1,0 +1,151 @@
+<<<<<<< HEAD
+=======
+html {}
+
+body {}
+
+/* Top-Header */
+.top-header {
+  height: 10px;
+  padding-top: 10px;
+}
+
+>>>>>>> addFoundation
+/* Notice */
+
+.notice {
+  color: #FF0000;
+}
+
+/* Success */
+.success {
+  color: #FF680D;
+}
+
+.flash-container {
+  width: 900px;
+  /*background-color: yellow;*/
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  margin: 0 auto;
+}
+
+table thead tr th {
+  color: rgb(255, 255, 255);
+}
+
+th {
+  background-color: rgb(22, 173, 88);
+}
+
+/* Logo */
+.logo {
+  display: inline-block;
+}
+
+.logo img {
+  height: 70px;
+}
+
+.greenBar {
+  text-align: center;
+  padding: 20px;
+  border-top: 10px solid rgb(22,173,88);
+  border-bottom: 1px solid silver;
+}
+
+.text-block {
+  padding: 20px;
+  border-bottom: 2px solid #008cba;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.text-block:last-child {
+  border-bottom: none;
+}
+
+.main-wrapper {
+  width: 220px;
+  margin: 0 auto;
+}
+
+.text-block-single {
+  margin: 0 100px 20px;
+  text-align: center;
+}
+
+.item {
+  margin-bottom: 10px;
+}
+.labels {
+  font-weight: bold;
+}
+
+.checkbox-label {
+  display: inline-block;
+  clear: right;
+}
+
+.wrapper {
+  margin-bottom: 200px;
+}
+
+div.top-bar-section .fa {
+    margin-right: 7px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  margin-bottom: 0;
+}
+
+div.button-holder {
+ padding: 0.5rem;
+ background-color: white;
+ border: 1px solid #cccccc;
+}
+
+input.button {
+  margin: 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+main {
+  min-height: 100%;
+}
+
+div.button {
+  border-radius: 5px;
+  margin: 20px 10%;
+  width: 80%;
+}
+
+.simple_form.new_user .button {
+  margin-top: 20px;
+}
+
+.simple_form.new_jam .input,
+.simple_form.new_jam .button {
+  margin-bottom: 20px;
+}
+
+.pending {
+  color: red;
+}
+
+.confirmed {
+  color: green;
+}
+
+
