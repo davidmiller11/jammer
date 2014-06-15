@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<<<<<<< HEAD
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Jammer App" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Jammer App" %>">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%# Modernizr is required for Zurb Foundation %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+=======
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jammer | Let's Jam</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Jammer</a></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <% if !current_user %>
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><a href="<%= login_path %>">Login</a></li>
+          <li><a href="<%= new_user_path %>">Sign up</a></li>
+          <li class="has-dropdown">
+            <a href="#">Right Button Dropdown</a>
+            <ul class="dropdown">
+              <li><a href="#">First link in dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><a href="#">Left Nav Button</a></li>
+        </ul>
+
+      <% else %> <!-- if current_user -->
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><%= link_to current_user.first_name, current_user  %></li>
+          <li><a href="<%= logout_path %>">Logout</a></li>
+          <li class="has-dropdown">
+            <a href="#">Right Button Dropdown</a>
+            <ul class="dropdown">
+              <li><a href="#">First link in dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><%= link_to "Create New Jam", new_jam_path %></li>
+          <li><a href="#">My Jams</a></li>
+        </ul>
+
+      <% end %>
+    </section>
+  </nav>
+
+  <div class="container">
+    <header class="sixteen columns">
+      <% if current_user %>
+        <div class="nav">
+          <% if current_user.admin == true %>
+            <span><%= link_to 'All Friendships (admin)', '/friendships/all' %></span> |
+            <span><%= link_to 'All Jams (admin)', jams_all_path %></span> |
+          <% end %>
+          <span><%= link_to "My Jams (#{current_user.jams.count})", jams_path %></span> |
+          <span><%= link_to "My Invitations (#{current_user.jams_invited_to.count})", rsvps_path %></span> |
+          <span><%= link_to "My Friends (#{current_user.friends.count})", user_friendships_path(current_user) %></span> |
+          <span><%= link_to "All Users (#{User.all.count})", users_path %></span>
+        </div> <!-- END NAV -->
+      <% end %>
+
+      <div class="flash-container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: name %>
+        <% end %>
+      <!-- </div> END FLASH-CONTAINER -->
+>>>>>>> addFoundation
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+  </body>
+</html>
