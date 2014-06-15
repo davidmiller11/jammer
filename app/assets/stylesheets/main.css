@@ -1,10 +1,5 @@
 /* Notice */
 
-
-
-
-
-
 .notice {
   color: #FF0000;
 }
@@ -26,25 +21,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
 }
 
-/*a:link {
-  text-decoration:none;
-  color: rgb(22, 173, 88);
-}
-
-a:visited {
-  text-decoration:none;
-  color: rgb(22, 173, 88);
-}
-
-a:hover {
-  text-decoration:underline;
-  color:rgb(196, 182, 15);
-}*/
-
 table {
-  /*border: 1px solid black;*/
-  /*border_collapse: collapse;*/
-  /*border-spacing: 0;*/
   margin: 0 auto;
 }
 
@@ -52,34 +29,18 @@ table thead tr th {
   color: rgb(255, 255, 255);
 }
 
-  th {
-    background-color: rgb(22, 173, 88);
-    /*color: rgb(0, 0, 0);*/
-    /*letter-spacing: 1px;*/
-  }
-
-  th, td {
-    /*padding-left: 5px;*/
-    /*padding-right: 5px;*/
-    /*border: 1px solid black;*/
-  }
-
-  td {
-    /*text-align: center;*/
-  }
-
-  tr td:first-child {
-    /*text-align: left;*/
-  }
+th {
+  background-color: rgb(22, 173, 88);
+}
 
 /* Logo */
 .logo {
   display: inline-block;
 }
 
-  .logo img {
-    height: 70px;
-  }
+.logo img {
+  height: 70px;
+}
 
 .greenBar {
   text-align: center;

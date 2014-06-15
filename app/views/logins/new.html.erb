@@ -1,10 +1,10 @@
 <!-- new.html.erb - logins -->
-<h2>Log In</h2>
+<h2>Login</h2>
 
   <%= form_tag login_path do %>
     <%= email_field_tag :email, nil, placeholder: 'Email' %>
     <%= password_field_tag :password, nil, placeholder: 'Password' %>
-    <div class="button-holder"><%= submit_tag 'Log In', class: 'button' %></div>
+    <div class="button-holder"><%= submit_tag 'Login', class: 'button' %></div>
   <% end %>
 
   <a href="<%= new_user_path %>"><div type="button" class="button">Create New Account</div></a>

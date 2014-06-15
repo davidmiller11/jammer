@@ -10,13 +10,29 @@
     </ul>
   <% end %>
 
-  <%= simple_form_for @user do |f| %>
-    <%= f.input :first_name, label: 'First Name:' %>
-    <%= f.input :last_name, label: 'Last Name:' %>
-    <%= f.input :email, label: 'Email:' %>
-    <%= f.input :password, label: 'Password:' %>
-    <%= f.input :password_confirmation, label: 'Re-enter Password:' %>
-    <%= f.button :submit, value: 'Sign Up' %>
+  <%= form_for @user do |f| %>
+    <p>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+
+    <%= f.submit 'Signup' %>
   <% end %>
 
 </div>

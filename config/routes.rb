@@ -2,6 +2,8 @@ JammerApp::Application.routes.draw do
 
   root 'logins#new'
 
+  get '/responsiveboard' => 'welcome#index'
+
   get '/login' => 'logins#new'
   post '/login' => 'logins#create'
   get '/logout' => 'logins#destroy'
